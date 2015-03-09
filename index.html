@@ -4,11 +4,13 @@
 
 		<meta charset="utf-8">
 		<meta name="theme-color" content="#f5414c">
-		<meta name="description" content="Ineedaresu.me is a super simple and free resume generator. You fill in a few fields including work history, education, skills, and more, and we will generate you a PDF resume that you can download or print instantly!">
+		<meta name="description" content="Ineedaresu.me is a super fast, super simple, and completely free way to build a beautiful resume in minutes. Fill out your details, choose your theme, and either print your resume directly or save it to your computer!">
 		<meta name="author" content="Mitch Samuels">
 		<meta name="keywords" content="Simple, Quick, resume, CV, contact, job, work, career, fair, builder, minimal, Mitch Samuels, resume, generator, creator, maker, resumay, job, jobs, career, javascript, pdf, word, print, creating, make, generate, apply, applicant">
 
 		<link rel="shortcut icon" type="image/ico" href="src/rainbow.ico" />
+
+		<meta name="thumbnail" content="http://ineedaresu.me/src/logosmall.png" />
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -25,6 +27,18 @@
 
 		<!-- Ionicons CDN -->
 		<link href="css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+
+		<!--
+		  <PageMap>
+		    <DataObject type="thumbnail">
+		      <Attribute name="src" value="http://ineedaresu.me/src/logosmall.png"/>
+		      <Attribute name="width" value="300"/>
+		      <Attribute name="height" value="250"/>
+		    </DataObject>
+		  </PageMap>
+		-->
+
 
 	</head>
 	<body>
@@ -64,12 +78,12 @@
 
 			<section id="intro_box" class="animated pulse">
 				<h4><i class="ion-document"></i><br/><b>i</b>need<b>a</b>resu.me</h4>
-				<h5>create a R&eacute;sum&eacute; in seconds</h5>
+				<h5>create a R&eacute;sum&eacute; in seconds<br/><br/>See an example <a href="src/example.pdf" target="_blank">here</a></h5>
 
 				<ul>
 					<li>
 						<h5>Super duper simple</h5>
-						<h6>Easy-to-follow instructions every step of the way. Navigate with the <i class="ion-arrow-left-c"></i> and <i class="ion-arrow-right-c"></i> keys or by using the enter button, and follow your progress towards completion with a bar at the top of the screen.</h6>
+						<h6>Easy-to-follow instructions every step of the way. Navigate with the TAB key or by clicking the back/continue buttons, and follow your progress towards completion with a bar at the top of the screen.</h6>
 					</li>
 					<li>
 						<h5>Compatible With Chrome</h5>
@@ -86,6 +100,10 @@
 					<li>
 						<h5>Because making pretty resumes isn't one of your skills</h5>
 						<h6>You can see an example of the beautiful default theme <a href="src/example.pdf" target="_blank">here</a>, but if you want to do more, you can also create your own using HTML and CSS. <a href="https://github.com/mitchas/Resume-Generator/tree/master/dev" target="_blank">Learn more</a>.</h6>
+					</li>
+					<li>
+						<h5>We're not done yet!</h5>
+						<h6>I'm a single full-time student who has been working on this between classes for less than a week! I'm still working on ironing out all the bugs, so if you find any, or have any suggestions, please  shoot me an email @ <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a>.</h6>
 					</li>
 				</ul>
 
@@ -142,6 +160,9 @@
 						<label>Skills (Seperate with commas):</label><input type="text" id="skillsinput" placeholder="HTML, CSS, Javascript, Adobe Suite">
 					</span>
 
+					<!-- Back Button -->
+					<button id="back_btn"><i class="ion-arrow-left-c"></i> Back</button>
+
 					<!-- Continue Buton -->
                     <button id="next_button">Continue <i class="ion-arrow-right-c"></i></button>
 			</section>
@@ -191,9 +212,9 @@
 				<h2>Good luck with your job search!</h2>
 				<h6>If something didn't look right, click settings on the sidebar and try adjusting those some more.</h6>
 
-				<p>If you liked this tool, give me a shout out on Twitter, Facebook, or anything else!<br/><br/>Tell your friends.<br/></br/><br/>Created by Mitch Samuels / <a href="http://mitchs.co" target="_blank">Mitchs.co</a></p>
-				<br/>
-				<h6>Development takes time. Keep this free. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mitch%40mitchs%2eco&lc=US&item_name=Donation%20to%20ineedaresume&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank">Donate:)</a></h6>
+				<p>If you liked this tool, give me a shout out on Twitter, Facebook, or anything else!<br/><br/>Tell your friends.<br/></br/><br/>Created by Mitch Samuels / <a href="http://mitchs.co" target="_blank">Mitchs.co</a> / <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a></p>
+				<!-- <br/>
+				<h6>Development takes time. Keep this free. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mitch%40mitchs%2eco&lc=US&item_name=Donation%20to%20ineedaresume&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank">Donate:)</a></h6> -->
 			</section>
 
 		</article>

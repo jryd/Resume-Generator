@@ -4,6 +4,8 @@ $( document ).ready(function() {
 
 	//Test for local storage
 	loadLocal();
+	$("#hide_preview").click();
+	$("#print_page").hide();
 
 	//Display preview on start - testing
 	// $("#preview_btn").click();
@@ -63,28 +65,44 @@ $('#personal_name_input, #personal_email_input, #personal_phone_input, #personal
 
 //Arrow key function
 $(document).keydown(function(e){
-    if (e.keyCode == 37){
-    	if(navCounter>0){
-	    	saveFields();
-	    	$("nav > ul > li").removeClass("activated");
-			$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-			$("#intro_box").toggleClass("pulse, pulse2");
-			$("#body_wrap").toggleClass("pulse, pulse2");
-	    	navCounter--;
-	    	checkNavPos();
-	    }
-    }
-    if (e.keyCode == 39){
-    	if(navCounter<10){
-	    	saveFields();
-	    	$("nav > ul > li").removeClass("activated");
-			$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-			$("#intro_box").toggleClass("pulse, pulse2");
-			$("#body_wrap").toggleClass("pulse, pulse2");
-	    	navCounter++;
-	    	checkNavPos();
-	    }
-    }
+
+	if(e.keyCode == 9 && !event.shiftKey){
+
+		if($("#personal_name_input, #personal_email_input, #personal_phone_input, #personal_location_input, #personal_link_input, #personal_statement_input, #job_desc, #graduation, #skillsinput").is(":focus") && navCounter<10){
+
+	    	e.preventDefault();
+		    	saveFields();
+		    	$("nav > ul > li").removeClass("activated");
+				$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
+				$("#intro_box").toggleClass("pulse, pulse2");
+				$("#body_wrap").toggleClass("pulse, pulse2");
+		    	navCounter++;
+		    	// alert("tab");
+		    	checkNavPos();
+		    	
+
+		}
+
+	}
+
+	if(e.keyCode == 9 && event.shiftKey){
+
+
+		if($("#personal_email_input, #personal_phone_input, #personal_location_input, #personal_link_input, #statement_title, #employer, #degree, #skillsinput").is(":focus") && navCounter>0){
+				saveFields();
+		    	$("nav > ul > li").removeClass("activated");
+				$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
+				$("#intro_box").toggleClass("pulse, pulse2");
+				$("#body_wrap").toggleClass("pulse, pulse2");
+		    	navCounter--;
+		    	checkNavPos();		    	
+
+		}
+
+		$("body").find("input").focus();
+
+	}
+
 });
 
 
@@ -127,9 +145,21 @@ $("#next_button").click(function(){
 	saveFields();
 })
 
+// Back button
+$("#back_btn").click(function(){
+	navCounter--;
+	$("nav > ul > li").removeClass("activated");
+	$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
+	$("#intro_box").toggleClass("pulse, pulse2");
+	$("#body_wrap").toggleClass("pulse, pulse2");
+	checkNavPos();
+	saveFields();
+})
+
 function checkNavPos(){
 	if(10>navCounter>0){
 		$("#body_wrap").show();
+		$("#back_btn").hide();
 	}
 	if(navCounter==0){
 		$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
@@ -141,26 +171,31 @@ function checkNavPos(){
 		$("#body_wrap").show();
 		$("#instructions").html("Starting off easy, what's your <b>full name</b>?");
 		$("#personal_name_input").show().focus();
+		$("#back_btn").show();
 		$("#tab_1").addClass("activated");
 		$("#progressbar").val(3);
 	}else if(navCounter==2){
 		$("#instructions").html("This one is tougher, What is your <b>email address</b>?");
 		$("#personal_email_input").show().focus();
+		$("#back_btn").show();
 		$("#tab_1").addClass("activated");
 		$("#progressbar").val(6);
 	}else if(navCounter==3){
 		$("#instructions").html("I know we just met, but can I have your <b>number</b>?");
 		$("#personal_phone_input").show().focus();
+		$("#back_btn").show();
 		$("#tab_1").addClass("activated");
 		$("#progressbar").val(9);
 	}else if(navCounter==4){
 		$("#instructions").html("Not to be creepy but I need your <b>location</b> too.");
 		$("#personal_location_input").show().focus();
+		$("#back_btn").show();
 		$("#tab_1").addClass("activated");
 		$("#progressbar").val(12);
 	}else if(navCounter==5){
 		$("#instructions").html("Do you have a <b>portfolio or linkedin</b> or something?");
 		$("#personal_link_input").show().focus();
+		$("#back_btn").show();
 		$("#tab_1").addClass("activated");
 		$("#progressbar").val(15);
 	}else if(navCounter==6){
@@ -168,6 +203,7 @@ function checkNavPos(){
 		$("#statement").show();
 		// $("#statement_title").show();
 		$("#statement_title").focus();
+		$("#back_btn").show();
 		$("#tab_2").addClass("activated");
 		$("#progressbar").val(18);
 	}else if(navCounter==7){

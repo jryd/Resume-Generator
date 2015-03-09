@@ -157,7 +157,7 @@ article{
 	position: fixed; top:0px; right: 0px;
 	background-color: #f9f9f9;
 	box-shadow: -6px 0px 15px -4px rgba(0,0,0,0.99);
-	overflow: scroll;
+	overflow: auto;
 	z-index: 500000;
 }
 
@@ -232,7 +232,7 @@ article{
 			font-size: 13pt;
 			line-height: 1.6em;
 		}
-		section #next_button{
+		#next_button, #back_btn{
 			width:50%;
 			float: right;
 			border:none; border-radius: 0;
@@ -249,7 +249,7 @@ article{
 			text-align: right;
 			margin-top: 10px;
 		}
-			section #next_button:hover{
+			#next_button:hover, #back_btn:hover{
 				color:#f5414c;
 				transition:0.2s;
 				cursor: pointer;
@@ -265,6 +265,12 @@ article{
 				padding-bottom: 5px;
 				width: 100%;
 			}*/
+
+			#back_btn{
+				float: left;
+				text-align: left;
+				padding-left: 5%;
+			} 
 
 	label{
 		text-transform: uppercase;
@@ -304,8 +310,9 @@ article{
 		text-align: center;
 		font-size: 10pt; font-weight: 400; text-transform: lowercase; letter-spacing: 1px;
 		padding: 0; margin: 0 auto;
-		padding-top: 15px;
+		padding-top: 20px;
 		padding-bottom: 25px;
+		line-height: 0.75em;
 	}
 
 
@@ -350,6 +357,7 @@ article{
 				text-transform: none;
 				line-height: 1.6em;
 				font-size: 9pt;
+				padding-top: 3px;
 			}
 
 
@@ -645,8 +653,8 @@ article{
 	/*Tips*/
 	#tips{
 		width:100%;
-		height: 40px;
-		line-height: 40px;
+		height: 25px;
+		line-height: 25px;
 		color:#fff;
 		background-color: #f5414c;
 		position: fixed;
@@ -655,7 +663,7 @@ article{
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 		text-align: center;
 		letter-spacing: 1px;
-		font-size: 9pt;
+		font-size: 8pt;
 		text-transform: uppercase;
 		font-weight: 300;
 		display: none;
