@@ -507,8 +507,45 @@ article{
 
 
 
-
-
+/*	==============================================
+	==============================================
+			Misc specific Styles
+	==============================================
+	==============================================	*/
+#select_job{
+	width:300px;
+	position: fixed;
+	bottom:0; left: 50%; margin-left: -150px; 
+	z-index: 50000;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 10px; padding-bottom: 10px;
+	letter-spacing: 1px;
+	font-size: 10pt;
+	color: #626c8d;
+	display: none;
+	margin-bottom: 8px;
+}
+	#select_job a{
+		padding-left: 6px; padding-right: 6px;
+		padding-top: 2px; padding-bottom: 2px;
+		border-bottom: none;
+		border-radius: 50%;
+		margin-left: 3px; margin-right: 3px;
+	}
+		#select_job a:nth-child(1){
+			margin-left: 10px;
+		}
+	#select_job_3{
+		display: none;
+	}
+	.current_job{
+		background-color: #f5414c;
+		color: #fff;
+	}
+		.current_job:hover{
+			color:#fff;
+		}
 
 
 

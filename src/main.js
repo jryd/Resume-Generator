@@ -25,6 +25,15 @@ $( document ).ready(function() {
 		$("#intro_begin").html("Continue Editing <i class='ion-arrow-right-c'></i>");
 	}
 
+	if(localStorage.dataSavedEmp2){
+		$("#select_job").show();
+	}
+	if(localStorage.dataSavedEmp3){
+		$("#select_job_3").show();
+		$("#new_job").prop("disabled",true);
+		
+	}
+
 
 	//PDF Testing, filler info
 	// loadTestData();
@@ -239,14 +248,66 @@ $("#new_job").click(function(){
 	$("#employer, #job_location, #job_time, #employer_desc, #title, #job_desc").val("");
 	$("#employer").focus();
 	if(jobnum==1){
+		$("#select_job").show();
 		$("#instructions").text("You know the drill. Second job This time.");
+		$("#select_job_1").removeClass("current_job");
+		$("#select_job_2").addClass("current_job");
 	}else if(jobnum==2){
 		$("#instructions").text("I'm limiting you to 3. Nobody cares about the rest.");
 		$("#new_job").prop("disabled",true);
+		$("#select_job_3").show();
+		$("#select_job_3").addClass("current_job");
+		$("#select_job_2").removeClass("current_job");
 	}
 	 $("article").animate({ scrollTop: 0 }, "slow");
 	 jobnum++;
 })
+
+$("#select_job_1").click(function(){
+	saveFields();
+	onJobNumer = 1;
+	// saveFields();
+	$(this).addClass("current_job");
+	$("#select_job_2, #select_job_3").removeClass("current_job");
+	$("#instructions").text("Go ahead. Edit your first job again.");
+	$("#employer").val(user_employer);
+	$("#job_location").val(user_job_location);
+	$("#job_time").val(user_job_time);
+	$("#employer_desc").val(user_emp_desc);
+	$("#title").val(user_emp_desc);
+	$("#job_desc").val(user_job_desc);
+	jobnum=1;
+})
+$("#select_job_2").click(function(){
+	saveFields();
+	onJobNumer = 2;
+	// saveFields();
+	$(this).addClass("current_job");
+	$("#select_job_1, #select_job_3").removeClass("current_job");
+	$("#instructions").text("Fixing job #2? Did you mess up or something?");
+	$("#employer").val(user_employer2);
+	$("#job_location").val(user_job_location2);
+	$("#job_time").val(user_job_time2);
+	$("#employer_desc").val(user_emp_desc2);
+	$("#title").val(user_job_title2);
+	$("#job_desc").val(user_job_desc2);
+	jobnum=2;
+})
+$("#select_job_3").click(function(){
+	saveFields();
+	onJobNumer = 3;
+	$(this).addClass("current_job");
+	$("#select_job_2, #select_job_1").removeClass("current_job");
+	$("#instructions").text("Fix it. Fit it real good.");
+	$("#employer").val(user_employer3);
+	$("#job_location").val(user_job_location3);
+	$("#job_time").val(user_job_time3);
+	$("#employer_desc").val(user_emp_desc3);
+	$("#title").val(user_job_title3);
+	$("#job_desc").val(user_job_desc3);
+	jobnum=3;
+})
+
 
 
 //Add school control
@@ -509,6 +570,9 @@ function saveLocal(){
 	localStorage.setItem('dataSavedJobTitle', user_job_title);
 	localStorage.setItem('dataSavedJobDesc', user_job_desc);
 
+	localStorage.setItem('dataSavedEmp2', user_employer2); localStorage.setItem('dataSavedJobLoc2', user_job_location2); localStorage.setItem('dataSavedJobTime2', user_job_time2); localStorage.setItem('dataSavedEmpDesc2', user_emp_desc2); localStorage.setItem('dataSavedJobTitle2', user_job_title2); localStorage.setItem('dataSavedJobDesc2', user_job_desc2);
+	localStorage.setItem('dataSavedEmp3', user_employer3); localStorage.setItem('dataSavedJobLoc3', user_job_location3); localStorage.setItem('dataSavedJobTime3', user_job_time3); localStorage.setItem('dataSavedEmpDesc3', user_emp_desc3); localStorage.setItem('dataSavedJobTitle3', user_job_title3); localStorage.setItem('dataSavedJobDesc3', user_job_desc3);
+
 	localStorage.setItem('dataSavedDegree', user_degree);
 	localStorage.setItem('dataSavedSchool', user_school);
 	localStorage.setItem('dataSavedSchoolLoc', user_school_location);
@@ -533,6 +597,20 @@ function loadLocal(){
 	$("#employer_desc").val(localStorage.getItem('dataSavedEmpDesc'));
 	$("#title").val(localStorage.getItem('dataSavedJobTitle'));
 	$("#job_desc").val(localStorage.getItem('dataSavedJobDesc'));
+
+	user_employer2 = localStorage.getItem('dataSavedEmp2');
+	user_job_location2 = localStorage.getItem('dataSavedJobLoc2');
+	user_job_time2 = localStorage.getItem('dataSavedJobTime2');
+	user_emp_desc2 = localStorage.getItem('dataSavedEmpDesc2');
+	user_job_title2 = localStorage.getItem('dataSavedJobTitle2');
+	user_job_desc2 = localStorage.getItem('dataSavedJobDesc2');
+
+	user_employer3 = localStorage.getItem('dataSavedEmp3');
+	user_job_location3 = localStorage.getItem('dataSavedJobLoc3');
+	user_job_time3 = localStorage.getItem('dataSavedJobTime3');
+	user_emp_desc3 = localStorage.getItem('dataSavedEmpDesc3');
+	user_job_title3 = localStorage.getItem('dataSavedJobTitle3');
+	user_job_desc3 = localStorage.getItem('dataSavedJobDesc3');
 
 	$("#degree").val(localStorage.getItem('dataSavedDegree'));
 	$("#school").val(localStorage.getItem('dataSavedSchool'));
