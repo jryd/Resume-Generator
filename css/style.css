@@ -24,7 +24,7 @@ input:focus, input:active { outline: none; }
 * {outline: none;}
 input{
 	width:90%;
-	margin:20px 0px 15px 5%;
+	margin:4px 0px 15px 5%;
 	font-size: 14pt; font-weight: 300;
 	padding: 14px;
 	background-color: #fff;
@@ -35,9 +35,19 @@ input{
 	background-color: rgba(0,0,0,0.008);
 	border:1px solid rgba(100,110,142,0.4);
 }
+input:disabled,
+textarea:disabled{
+	background-color: rgba(150,50,50,0.05);
+	opacity: 0.25;
+}
+	input:disabled:hover,
+	textarea:disabled:hover{
+		cursor: not-allowed;
+	}
+
 textarea{
 	width:90%;
-	margin: 0px 0px 15px 5%;
+	margin: 4px 0px 15px 5%;
 	font-size: 12pt; font-weight: 300; letter-spacing: 1px;
 	background-color: #fff;
 	box-sizing:border-box !important;
@@ -47,12 +57,13 @@ textarea{
 	line-height: 1.6em;
 	letter-spacing: 1px;
 	color:#626c8d;
-}textarea::-webkit-input-placeholder{font-weight:300; color: #b3b9ca; opacity:0.8;}
+}textarea::-webkit-input-placeholder{font-weight:300; color: #b3b9ca; opacity:1; font-family: 'Lato', sans-serif; font-size:12pt; font-weight: 400; }
 	textarea:focus{
 		border:1px solid rgba(100,110,142,0.4);
 		background-color: rgba(0,0,0,0.008);
 		border-left: 2px solid rgba(100,110,142,0.2);
 	}
+
 /*	==============================================
 	==============================================
 				Link Styling
@@ -204,8 +215,9 @@ article{
 		-webkit-appearance: none;
    		appearance: none;
 		width:100%;
-		position: absolute; top:0;
+		position: fixed; top:0;
 		height:3px;
+		z-index: 500000;
 		background: #fff;
 	}progress::-webkit-progress-bar {background-color: #F9F9F9;}
 		progress::-webkit-progress-value {background: #f5414c;}
@@ -231,8 +243,9 @@ article{
 			text-transform: uppercase;
 			font-size: 13pt;
 			line-height: 1.6em;
+			margin-bottom: 30px;
 		}
-		#next_button, #back_btn{
+		.next_button, .back_btn{
 			width:50%;
 			float: right;
 			border:none; border-radius: 0;
@@ -249,24 +262,13 @@ article{
 			text-align: right;
 			margin-top: 10px;
 		}
-			#next_button:hover, #back_btn:hover{
+			.next_button:hover, .back_btn:hover{
 				color:#f5414c;
 				transition:0.2s;
 				cursor: pointer;
 			}
 
-			/*article section h3{
-				letter-spacing: 1px;
-				font-weight: 700;
-				color:#626c8d;
-				opacity: 0.6;
-				font-size: 8pt;
-				text-align: center;
-				padding-bottom: 5px;
-				width: 100%;
-			}*/
-
-			#back_btn{
+			.back_btn{
 				float: left;
 				text-align: left;
 				padding-left: 5%;
@@ -279,10 +281,21 @@ article{
 		padding: 0; margin: 0 auto;
 		padding-left: 5%;
 		font-size: 9pt;
-		color:rgba(43,47,62,0.2);
+		color:rgba(43,47,62,0.4);
 	}
 	hr{opacity: 0; margin-bottom: 15px;}
 
+
+
+	#the_personal,
+	#the_statement,
+	#the_work,
+	#the_education, 
+	#the_skills,
+	#settings,
+	#thanks{
+		display: none;
+	}
 
 /*	==============================================
 	==============================================
@@ -415,7 +428,7 @@ article{
 	==============================================
 	==============================================	*/
 #body_wrap, #education, #work, #statement, #settings, #thanks{
-	display: none;
+	/*display: none;*/
 	-moz-animation-duration: 0.25s;
    	-webkit-animation-duration: 0.25s;
     animation-duration: 0.25s;
@@ -432,7 +445,7 @@ article{
 #skills,
 #settings,
 #thanks
-{display: none;}
+{display: ;}
 
 /*Personal statment counter*/
 #statement_feedback{
@@ -457,14 +470,7 @@ article{
 	line-height: 2em;
 }
 
-/*Special styling for inputs with label*/
-#statement input, #statement textarea,
-#work input, #work textarea,
-#schooling input, #schooling textarea,
-#skills input, #skills textarea
-{
-	margin-top: 5;
-}
+
 
 /*Add job and buttons*/
 #new_job,
@@ -512,6 +518,50 @@ article{
 			Misc specific Styles
 	==============================================
 	==============================================	*/
+
+#enable_edu_1,
+#enable_edu_2,
+#enable_edu_3,
+#enable_work_1,
+#enable_work_2,
+#enable_work_3{
+	position: relative;
+	left:10px;
+	top:2px;
+}
+
+.selector_heading{
+	margin-bottom:15px;
+}
+	.selector_heading a{
+		margin-left: 10px;
+		display: inline-block;
+		width:28px;
+		border-radius: 50%;
+		/*background-color: rgba(245,65,76,0.25);*/
+		background-color: rgba(75,65,76,0.25);
+		text-align: center;
+		letter-spacing: 0px;
+		color:#fff;
+		border-bottom: none;
+		font-weight: 300;
+	}
+		.selector_heading a:hover{
+			cursor: pointer;
+			/*background-color: rgba(245,65,76,1);*/
+			background-color: rgba(75,65,76,0.75);
+			color:#fff;
+		}
+	.select_link{
+
+	}
+	.select_active{
+		font-weight: 700;
+		background-color: rgba(245,65,76,1) !important;
+	}
+
+
+
 #select_job{
 	width:300px;
 	position: fixed;
@@ -547,6 +597,21 @@ article{
 			color:#fff;
 		}
 
+/*Work Stuff*/
+#work_two,
+#work_three{
+	display: none;
+}
+
+/*Education Stuff*/
+#edu_two,
+#edu_three,
+#pdf_edu_2,
+#pdf_edu_3{
+	display: none;
+}
+
+
 
 
 
@@ -578,8 +643,7 @@ article{
 			border-left: 0px solid transparent;
 		}
 			#settings ul li:nth-child(1):hover,
-			#settings ul li:nth-child(2):hover,
-			#settings ul li:nth-child(3):hover{
+			#settings ul li:nth-child(2):hover{
 				cursor: pointer;
 				transition:0.2s;
 				border-left: 5px solid #f5414c;
@@ -669,23 +733,6 @@ article{
 				cursor: pointer;
 			}
 
-	/*Paragraph on thanks dialog*/
-	#thanks p{
-		color: #626c8d;
-		font-weight: 300;
-		font-size: 14pt;
-		padding-top: 22px;
-		text-align: center;
-	}
-	#thanks h6{
-		width: 100%;
-		text-align: center;
-		font-size: 10pt;
-		font-weight: 400;
-		padding: 0; margin: 0 auto;
-		color: #626c8d;
-		padding-top: 16px;
-	}
 
 	/*Tips*/
 	#tips{
@@ -705,6 +752,46 @@ article{
 		font-weight: 300;
 		display: none;
 	}
+
+
+
+#thanks_text{
+	font-size: 9pt;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	padding-left: 15px; padding-right: 15px;
+	line-height: 1.6em;
+	color: #626c8d;
+}
+#promo{
+	width:70%;
+	margin-left: 15%;
+	height:25px;
+	position: absolute;
+	top: 20;
+	left: 0;
+	background-color: #f5414c;
+	font-size: 9pt;
+	text-transform: uppercase; letter-spacing: 2px;
+	text-align: center;
+	line-height: 25px;
+	color:white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.09);
+	transition:0.3s;
+}
+	#promo:hover{
+		cursor: pointer;
+		opacity: 0.8;
+		transition:0.3s;
+	}
+	#promo a{
+		color:#fff;
+		border-bottom: none;
+	}
+		#promo a:hover{
+			border-bottom: none;
+		}
 
 
 

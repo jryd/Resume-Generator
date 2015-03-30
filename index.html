@@ -52,6 +52,10 @@
 			Click <b>"+More Settings"</b> then uncheck "Headers & Footers" &nbsp; | &nbsp; Change the <b>Destination</b> to save it as a PDF
 		</div>
 
+
+		
+
+
 		<button id="preview_btn"><i class="ion-ios-eye"></i> Preview Resume</button>
 
 
@@ -62,6 +66,7 @@
 				<li id="tab_1"><i class="ion-ios-body"></i> Personal Information</li>
 				<li id="tab_2"><i class="ion-ios-chatbubble"></i> Statement</li>
 				<li id="tab_3"><i class="ion-ios-briefcase"></i> Work Experience</li>
+				<!-- <li id="tab_35"><i class="ion-hammer"></i> Projects</li> -->
 				<li id="tab_4"><i class="ion-ios-book"></i> Education</li>
 				<li id="tab_5"><i class="ion-ios-list"></i> Skills</li>
 				<li id="tab_6"><i class="ion-checkmark-circled"></i> Settings / Finish Up</li>
@@ -71,6 +76,11 @@
 
 
 		<article>
+
+			<div id="promo" class="animated pulse" onclick="window.open('http://ineedinvoic.es')">
+				Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!
+			</div>
+
 
 			<progress value="0" max="100" id="progressbar"></progress>	
 
@@ -83,7 +93,7 @@
 				<ul>
 					<li>
 						<h5>Completely Free & Super duper simple</h5>
-						<h6>Easy-to-follow instructions every step of the way. Navigate with the TAB key or by clicking the back/continue buttons, and follow your progress towards completion with a bar at the top of the screen. We won't charge you, ever.</h6>
+						<h6>Easy-to-follow instructions every step of the way. Follow your progress towards completion with a bar at the top of the screen. Best of all, we won't charge you, ever.</h6>
 					</li>
 					<li>
 						<h5>Compatible With Chrome</h5>
@@ -94,16 +104,20 @@
 						<h6>Did you find something more fun to do when you were making your resume? Go ahead, we'll automatically save the text that you leave in the fields so you can come back later.</h6>
 					</li>
 					<li>
+						<h5>Simple yet Flexible</h5>
+						<h6>See something you don't want included on your resume? Just leave that field blank.</h6>
+					</li>
+					<li>
 						<h5>We aren't thieves</h5>
-						<h6>Nothing you enter on this site is ever sent to us or saved on any servers, so nobody sees it except you.</h6>
+						<h6>Nothing you enter on this site is ever sent to us or saved on any servers, so nobody sees it except you. The resume is generated without us seeing anything.</h6>
 					</li>
 					<li>
 						<h5>Because making pretty resumes isn't one of your skills</h5>
-						<h6>You can see an example of the beautiful default theme <a href="src/example.pdf" target="_blank">here</a>, but if you want to do more, you can also create your own using HTML and CSS. <a href="https://github.com/mitchas/Resume-Generator/tree/master/dev" target="_blank">Learn more</a>.</h6>
+						<h6>This tool instantly generates a beautiful resume that you can either print directly or save as a PDF. No knowledge of design required!</h6>
 					</li>
 					<li>
 						<h5>We're not done yet!</h5>
-						<h6>I'm a single full-time student who has been working on this between classes for less than a week! I'm still working on ironing out all the bugs, so if you find any, or have any suggestions, please  shoot me an email @ <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a>.</h6>
+						<h6>I'm a single full-time student working on this when I can. I love hearing what people have to say, so please  shoot me an email @ <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a> with any suggestions or bugs.</h6>
 					</li>
 				</ul>
 
@@ -113,65 +127,136 @@
 			</section>
 
 
+			<section id="the_personal" class="animated pulse">
+				<h2>It's going to get a little <b>personal</b>...</h2>
+				<label>What is your name, human?</label><input type="text" id="personal_name_input" placeholder="Sean Combs">
+				<label>Please refrain from using your 6th grade email.</label><input type="text" id="personal_email_input" placeholder="horselover14@aol.com">
+				<label>I know we just met, but can I get your number?</label><input type="text" id="personal_phone_input" placeholder="760-555-4824">
+				<label>Not to be creepy, but where are you located?</label><input type="text" id="personal_location_input" placeholder="Madison, WI">
+				<label>Do you have an online portfolio or linkedin?</label><input type="text" id="personal_link_input" placeholder="http://linkedin.com/in/mitchas">
 
-			<section id="body_wrap" class="animated pulse">
-					<h2 id="instructions"></h2>
-
-					<!--Personal information-->
-                    <input type="text" class="hideall" id="personal_name_input" placeholder="Sean Combs">
-					<input type="text" class="hideall" id="personal_email_input" placeholder="horselover14@aol.com">
-					<input type="text" class="hideall" id="personal_phone_input" placeholder="760-555-4824">
-					<input type="text" class="hideall" id="personal_location_input" placeholder="Madison, WI">
-					<input type="text" class="hideall" id="personal_link_input" placeholder="http://linkedin.com/in/mitchas">
-
-					<!--Statement-->
-					<span id="statement" class="hideall">
-						<label>Statement title & Statement:</label><input type="text" id="statement_title" placeholder="Why I want to work here:">
-						<textarea id="personal_statement_input" maxlength="1200" placeholder="I would love to work here because I heard you have the gnarliest lunch buffet..."></textarea>
-						<div id="statement_feedback">For your own good, you only have <span id="statement_remaining"></span> characters left.</div>
-					</span>
-
-					<!--Work Experience-->
-					<span id="work" class="hideall">
-						<label>Employer:</label><input type="text" id="employer" placeholder="Google, Inc.">
-						<label>Location:</label><input type="text" id="job_location" placeholder="Mountain View, CA">
-						<label>Time:</label><input type="text" id="job_time" placeholder="July 2014 - Present">
-						<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc" placeholder="Google is the leading search engine...">
-						<hr style="opacity:0 !important;" />
-						<label>Job Title:</label><input type="text" id="title" placeholder="Front End Engineer">
-						<label>Job Description:</label><textarea id="job_desc" placeholder="Responsible for the development of Google.com, nothing serious."></textarea>
-						<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
-						<button id="new_job"><i class="ion-plus"></i> Add job</button>
-
-						<div id="select_job">
-							Edit job <a href="#" id="select_job_1" class="current_job">1</a>
-							 <a href="#" id="select_job_2">2</a>
-							 <a href="#" id="select_job_3">3</a>
-						</div>
-					</span>
-
-					<!-- School -->
-					<span id="schooling">
-						<br/>
-						<label>Degree:</label><input type="text" id="degree" placeholder="Bachelor of Science in Computer Science">
-						<label>School:</label><input type="text" id="school" placeholder="University of Wisconsin-Madison">
-						<label>Location:</label><input type="text" id="school_location" placeholder="Madison, WI">
-						<label>Graduation Year:</label><input type="text" id="graduation" placeholder="2015">
-						<button id="new_school"><i class="ion-plus"></i> Add School</button>
-					</span>
-
-					<!-- Skills -->
-					<span id="skills">
-						<br/>
-						<label>Skills (Seperate with commas):</label><input type="text" id="skillsinput" placeholder="HTML, CSS, Javascript, Adobe Suite">
-					</span>
-
-					<!-- Back Button -->
-					<button id="back_btn"><i class="ion-arrow-left-c"></i> Back</button>
-
-					<!-- Continue Buton -->
-                    <button id="next_button">Continue <i class="ion-arrow-right-c"></i></button>
+				<button class="next_button" id="personal_continue">Continue To Statement <i class="ion-arrow-right-c"></i></button>
 			</section>
+
+
+			<section id="the_statement" class="animated pulse">
+				<h2>Would you like to provide a personal <b>statement</b>?<br/>I wont judge if you don't.</h2>
+				<label>Statement title & Statement:</label><input type="text" id="statement_title" placeholder="Why I want to work here:">
+				<textarea id="personal_statement_input" maxlength="1200" placeholder="I would love to work here because I heard you have the gnarliest lunch buffet..."></textarea>
+				<div id="statement_feedback">For your own good, you only have <span id="statement_remaining"></span> characters left.</div>
+
+				<button class="next_button" id="statement_continue">Continue To Work <i class="ion-arrow-right-c"></i></button>
+			</section>
+
+
+			<span id="the_work" class="animated pulse">
+				<section style="margin-bottom:20px;">
+					<h2 class="selector_heading">
+						You can have up to 3 jobs<br/>
+						leave blank anything you don't need<br/><br/>
+						Edit job: <a id="select_work_1" class="select_link select_active">1</a><a id="select_work_2">2</a><a id="select_work_3">3</a>
+				</section>
+				<section id="work_one" class="animated pulse">
+					<br/>
+					<label>Enable This Job:</label><input id="enable_work_1" type="checkbox"/><br/><br/><br/>
+					<label>Employer:</label><input type="text" id="employer" placeholder="Google, Inc." disabled>
+					<label>Location:</label><input type="text" id="job_location" placeholder="Mountain View, CA" disabled>
+					<label>Time:</label><input type="text" id="job_time" placeholder="July 2014 - Present" disabled>
+					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc" placeholder="Google is the leading search engine..." disabled>
+					<hr style="opacity:0 !important;" />
+					<label>Job Title:</label><input type="text" id="title" placeholder="Front End Engineer" disabled>
+					<label>Job Description:</label><textarea id="job_desc" placeholder="Responsible for the development of Google.com, nothing serious." disabled></textarea>
+					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
+
+					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+				</section>
+				<section id="work_two" class="animated pulse">
+					<br/>
+					<label>Enable This Job:</label><input id="enable_work_2" type="checkbox"/><br/><br/><br/>
+					<label>Employer:</label><input type="text" id="employer2" placeholder="Stratton Oakmont" disabled>
+					<label>Location:</label><input type="text" id="job_location2" placeholder="New York, NY" disabled>
+					<label>Time:</label><input type="text" id="job_time2" placeholder="January 1985 - February 1989" disabled>
+					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc2" placeholder="Stratton Oakmont invests your money is the best companies ever" disabled>
+					<hr style="opacity:0 !important;" />
+					<label>Job Title:</label><input type="text" id="title2" placeholder="Fraud Expert" disabled>
+					<label>Job Description:</label><textarea id="job_desc2" placeholder="Manager of investing master of fraud. I know investment fraud like the back of my hand, and I have years of experience using ratholes and Swiss bank accounts." disabled></textarea>
+					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
+
+					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+				</section>
+				<section id="work_three" class="animated pulse">
+					<br/>
+					<label>Enable This Job:</label><input id="enable_work_3" type="checkbox"/><br/><br/><br/>
+					<label>Employer:</label><input type="text" id="employer3" placeholder="Central Intelligence Agency" disabled>
+					<label>Location:</label><input type="text" id="job_location3" placeholder="Langly, VA" disabled>
+					<label>Time:</label><input type="text" id="job_time3" placeholder="July 2010 - Present" disabled>
+					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc3" placeholder="Confideitial" disabled>
+					<hr style="opacity:0 !important;" />
+					<label>Job Title:</label><input type="text" id="title3" placeholder="Confidential" disabled>
+					<label>Job Description:</label><textarea id="job_desc3" placeholder="I was in charge of [redacted] and the [redacted] project which assassinated [redacted] and gave power to [redacted]" disabled></textarea>
+					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
+
+					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+				</section>
+			</span>
+
+
+
+			<span id="the_education" class="animated pulse">
+				<section style="margin-bottom:20px;">
+					<h2 class="selector_heading">
+						You can have up to 3 schools<br/>
+						leave blank anything you don't need<br/><br/>
+						Edit School: <a id="select_edu_1" class="select_link select_active">1</a><a id="select_edu_2">2</a><a id="select_edu_3">3</a>
+				</section>
+				<section id="edu_one" class="animated pulse">
+					<br/>
+					<label>Enable This School:</label><input id="enable_edu_1" type="checkbox"/><br/><br/><br/>
+					<label>Degree:</label><input type="text" id="degree" placeholder="Bachelor of Science in Computer Science" disabled>
+					<label>School:</label><input type="text" id="school" placeholder="University of Wisconsin-Madison" disabled>
+					<label>Location:</label><input type="text" id="school_location" placeholder="Madison, WI" disabled>
+					<label>Graduation Year:</label><input type="text" id="graduation" placeholder="2015" disabled>
+					<label>Grade Point Average:</label><input type="text" id="gpa" placeholder="3.24" disabled>
+
+					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
+				</section>
+				<section id="edu_two" class="animated pulse">
+					<br/>
+					<label>Enable This School:</label><input id="enable_edu_2" type="checkbox" /><br/><br/><br/>
+					<label>Degree:</label><input type="text" id="degree2" placeholder="Master of Arts in Philosophy" disabled>
+					<label>School:</label><input type="text" id="school2" placeholder="University of Phoenix" disabled>
+					<label>Location:</label><input type="text" id="school_location2" placeholder="Mother's Basement" disabled>
+					<label>Graduation Year:</label><input type="text" id="graduation2" placeholder="2017" disabled>
+					<label>Grade Point Average:</label><input type="text" id="gpa2" placeholder="3.24" disabled>
+
+					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
+				</section>
+				<section id="edu_three" class="animated pulse">
+					<br/>
+					<label>Enable This School:</label><input id="enable_edu_3" type="checkbox" /><br/><br/><br/>
+					<label>Degree:</label><input type="text" id="degree3" placeholder="Doctorate of Philosophy in Dance" disabled>
+					<label>School:</label><input type="text" id="school3" placeholder="Carnegie Mellon" disabled>
+					<label>Location:</label><input type="text" id="school_location3" placeholder="Pittsburgh, PA" disabled>
+					<label>Graduation Year:</label><input type="text" id="graduation3" placeholder="2020" disabled>
+					<label>Grade Point Average:</label><input type="text" id="gpa3" placeholder="3.24" disabled>
+
+					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
+				</section>
+			</span>
+
+
+
+			<section id="the_skills" class="animated pulse">
+				<h2>Can you actually <b>do</b> anything?</h2>
+
+				<label>Skills (Seperate with commas):</label><input type="text" id="skillsinput" placeholder="HTML, CSS, Javascript, Adobe Suite">
+
+				<button class="next_button" id="skills_continue">Continue To Settings <i class="ion-arrow-right-c"></i></button>
+			</section>
+
+
+
+			
 
 
 			<!-- Settings -->
@@ -179,10 +264,10 @@
 				<h2>Adjust your settings:</h2>
 				<small>After you click "Generate Resume," if something doesn't look right,<br/>just click cancel and try adjusting these settings some more.</small>
 				<ul>
-					<li id="choose_theme">
+					<!-- <li id="choose_theme">
 						<h5>Choose Theme</h5>
 						<h6>This will open the preview menu</h6>
-					</li>
+					</li> -->
 					<li>
 						<h5>Serif font</h5>
 						<h6>Default is Sans-serif</h6>
@@ -216,11 +301,15 @@
 
 			<section id="thanks" class="animated pulse">
 				<h2>Good luck with your job search!</h2>
-				<h6>If something didn't look right, click settings on the sidebar and try adjusting those some more.</h6>
-
-				<p>If you liked this tool, give me a shout out on Twitter, Facebook, or anything else!<br/><br/>Tell your friends.<br/></br/><br/>Created by Mitch Samuels / <a href="http://mitchs.co" target="_blank">Mitchs.co</a> / <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a></p>
-				<!-- <br/>
-				<h6>Development takes time. Keep this free. <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mitch%40mitchs%2eco&lc=US&item_name=Donation%20to%20ineedaresume&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank">Donate:)</a></h6> -->
+				<p id="thanks_text">
+					If something doesn't look right, click the sidebar to go back and edit!
+					<br/><br/>
+					If you liked this tool, share it with your friends!<br/>Follow <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a> for updates and new websites!
+					<br/><br/>
+					If you find a bug or have other feedback, shoot me an email at <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a>
+					<br/><br/>
+					Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!
+				</p>
 			</section>
 
 		</article>
@@ -230,11 +319,11 @@
 
 		<!-- PDF Lightbox -->
 		<div id="pdf_lightbox" class="noselect">
-			<h6>Use the arrows to switch themes.<br/>Theme <span id="current_theme">X</span> of <span id="available_themes">XX</span></h6>
+			<!-- <h6>Use the arrows to switch themes.<br/>Theme <span id="current_theme">X</span> of <span id="available_themes">XX</span></h6> -->
 			<h6 style="position:relative; top:300px;">Come on, fill in some more fields,<br/>To see what it'll actually look like!</h6>
 			<div id="hide_preview" class="noselect"><i class="ion-ios-close-empty"></i></div>
-			<button id="prev_theme" class="noselect"><i class="ion-ios-arrow-back"></i></button>
-			<button id="next_theme" class="noselect"><i class="ion-ios-arrow-forward"></i></button>
+			<!-- <button id="prev_theme" class="noselect"><i class="ion-ios-arrow-back"></i></button> -->
+			<!-- <button id="next_theme" class="noselect"><i class="ion-ios-arrow-forward"></i></button> -->
 		</div>
 
 
@@ -310,6 +399,7 @@
 					<span id="pdf_school" class="fill"></span> 
 					<span id="pdf_school_loc" class="fill"></span> 
 					<span id="pdf_graduation" class="fill"></span>
+					<span id="pdf_gpa" class="fill"></span>
 				</div>
 				<!-- School Two -->
 				<div id="pdf_edu_2" class="pdf_education_section fill">
@@ -317,6 +407,7 @@
 					<span id="pdf_school2" class="fill"></span> 
 					<span id="pdf_school_loc2" class="fill"></span> 
 					<span id="pdf_graduation2" class="fill"></span>
+					<span id="pdf_gpa2" class="fill"></span>
 				</div>
 				<!-- School Three -->
 				<div id="pdf_edu_3" class="pdf_education_section fill">
@@ -324,6 +415,7 @@
 					<span id="pdf_school3" class="fill"></span> 
 					<span id="pdf_school_loc3" class="fill"></span> 
 					<span id="pdf_graduation3" class="fill"></span>
+					<span id="pdf_gpa3" class="fill"></span>
 				</div>
 				<hr />
 			</div>
@@ -340,6 +432,7 @@
 
 		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script src="src/jquery-1.8.3.min.js"></script>
+		<script src="src/doubles.js"></script>
 		<script src="src/main.js"></script>
 		<script src="src/tests.js"></script>
         <script>

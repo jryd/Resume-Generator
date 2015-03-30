@@ -7,9 +7,6 @@ $( document ).ready(function() {
 	$("#hide_preview").click();
 	$("#print_page").hide();
 
-	//Display preview on start - testing
-	// $("#preview_btn").click();
-
 	//Statement Character Count
 	var text_max = 1200;
     $('#statement_remaining').html(text_max);
@@ -20,23 +17,10 @@ $( document ).ready(function() {
     });
 
     //If they have been to the site, show continue editing button
-	if (localStorage.dataSavedName) {
+	if (localStorage.name) {
 	    $("#intro_reset").show();
 		$("#intro_begin").html("Continue Editing <i class='ion-arrow-right-c'></i>");
 	}
-
-	if(localStorage.dataSavedEmp2){
-		$("#select_job").show();
-	}
-	if(localStorage.dataSavedEmp3){
-		$("#select_job_3").show();
-		$("#new_job").prop("disabled",true);
-		
-	}
-
-
-	//PDF Testing, filler info
-	// loadTestData();
 
 });
 
@@ -56,7 +40,6 @@ $("#clear_data_no").click(function(){
 })
 
 
-
 //Branding link
 $("#branding").click(function(){
 	window.open("http://mitchs.co");
@@ -64,267 +47,89 @@ $("#branding").click(function(){
 
 
 
-//Detect Enter on some inputs
-$('#personal_name_input, #personal_email_input, #personal_phone_input, #personal_location_input, #personal_link_input, #skillsinput ').bind('keyup', function(e) {
-    if ( e.keyCode === 13 ) { // 13 is enter key
-	    $("#next_button").click();
-    }
-});
 
-
-//Arrow key function
-$(document).keydown(function(e){
-
-	if(e.keyCode == 9 && !event.shiftKey){
-
-		if($("#personal_name_input, #personal_email_input, #personal_phone_input, #personal_location_input, #personal_link_input, #personal_statement_input, #job_desc, #graduation, #skillsinput").is(":focus") && navCounter<10){
-
-	    	e.preventDefault();
-		    	saveFields();
-		    	$("nav > ul > li").removeClass("activated");
-				$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-				$("#intro_box").toggleClass("pulse, pulse2");
-				$("#body_wrap").toggleClass("pulse, pulse2");
-		    	navCounter++;
-		    	// alert("tab");
-		    	checkNavPos();
-		    	
-
-		}
-
-	}
-
-	if(e.keyCode == 9 && event.shiftKey){
-
-
-		if($("#personal_email_input, #personal_phone_input, #personal_location_input, #personal_link_input, #statement_title, #employer, #degree, #skillsinput").is(":focus") && navCounter>0){
-				saveFields();
-		    	$("nav > ul > li").removeClass("activated");
-				$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-				$("#intro_box").toggleClass("pulse, pulse2");
-				$("#body_wrap").toggleClass("pulse, pulse2");
-		    	navCounter--;
-		    	checkNavPos();		    	
-
-		}
-
-		$("body").find("input").focus();
-
-	}
-
-});
-
-
-//Create empty variables
-user_job_location = ""; user_job_time = ""; user_emp_desc = ""; user_job_title = ""; user_job_desc = ""; user_employer2 = ""; user_job_location2 = ""; user_job_time2 = ""; user_emp_desc2 = ""; user_job_title2 = "";user_job_desc2 = ""; user_employer3 = ""; user_job_location3 = ""; user_job_time3 = ""; user_emp_desc3 = ""; user_job_title3 = "";user_job_desc3 = ""; user_degree = ""; user_school = ""; user_school_location = ""; user_school_grad = ""; user_degree2 = ""; user_school2 = ""; user_school_location2 = ""; user_school_grad2 = ""; user_degree3 = ""; user_school3 = ""; user_school_location3 = ""; user_school_grad3 = "";
-
-
-//Nav tab control
-$("#tab_intro").click(function(){navCounter=0;})
-$("#tab_1").click(function(){navCounter=1;})
-$("#tab_2").click(function(){navCounter=6;})
-$("#tab_3").click(function(){navCounter=7;})
-$("#tab_4").click(function(){navCounter=8;})
-$("#tab_5").click(function(){navCounter=9;})
-$("#tab_6").click(function(){navCounter=10;})
-$("nav > ul > li").click(function(){
+//Navigation
+function letsHide(){
+	$("nav > ul > li").removeClass("activated");
+	$("#promo").hide();
+	$("#intro_box, #the_personal, #the_statement, #the_work, #the_education, #the_skills, #settings, #thanks").hide();
 	saveFields();
-	$("section").toggleClass("pulse, pulse2");
-	$("nav > ul > li").removeClass("activated");
-	$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished, #thanks").hide();
-	checkNavPos();
-})
-
-// New nav controller shit
-navCounter = 0;
-$("#intro_begin").click(function(){
-	navCounter++;
-	checkNavPos();
-	$("nav > ul > li").removeClass("activated");
+}
+function loadIntro(){
+	letsHide();
+	$("#intro_box").show();
+	$("#promo").show();
+	$("#progressbar").val(1);
+	$("#tab_intro").addClass("activated");
+}
+function loadPersonal(){
+	letsHide();
+	$("#the_personal").show();
+	$("#personal_name_input").focus();
+	$("#progressbar").val(12);
 	$("#tab_1").addClass("activated");
-})
-
-$("#next_button").click(function(){
-	navCounter++;
-	$("nav > ul > li").removeClass("activated");
-	$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-	$("#intro_box").toggleClass("pulse, pulse2");
-	$("#body_wrap").toggleClass("pulse, pulse2");
-	checkNavPos();
-	saveFields();
-})
-
-// Back button
-$("#back_btn").click(function(){
-	navCounter--;
-	$("nav > ul > li").removeClass("activated");
-	$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-	$("#intro_box").toggleClass("pulse, pulse2");
-	$("#body_wrap").toggleClass("pulse, pulse2");
-	checkNavPos();
-	saveFields();
-})
-
-function checkNavPos(){
-	if(10>navCounter>0){
-		$("#body_wrap").show();
-		$("#back_btn").hide();
-	}
-	if(navCounter==0){
-		$(".hideall, #intro_box, #body_wrap, #work, #schooling, #skills, #statement, #settings, #finished").hide();
-		$("#intro_box").show();
-		$("#tab_intro").addClass("activated");
-		$("#progressbar").val(0);
-	}else if(navCounter==1){
-		$("#intro_box").hide();
-		$("#body_wrap").show();
-		$("#instructions").html("Starting off easy, what's your <b>full name</b>?");
-		$("#personal_name_input").show().focus();
-		$("#back_btn").show();
-		$("#tab_1").addClass("activated");
-		$("#progressbar").val(3);
-	}else if(navCounter==2){
-		$("#instructions").html("This one is tougher, What is your <b>email address</b>?");
-		$("#personal_email_input").show().focus();
-		$("#back_btn").show();
-		$("#tab_1").addClass("activated");
-		$("#progressbar").val(6);
-	}else if(navCounter==3){
-		$("#instructions").html("I know we just met, but can I have your <b>number</b>?");
-		$("#personal_phone_input").show().focus();
-		$("#back_btn").show();
-		$("#tab_1").addClass("activated");
-		$("#progressbar").val(9);
-	}else if(navCounter==4){
-		$("#instructions").html("Not to be creepy but I need your <b>location</b> too.");
-		$("#personal_location_input").show().focus();
-		$("#back_btn").show();
-		$("#tab_1").addClass("activated");
-		$("#progressbar").val(12);
-	}else if(navCounter==5){
-		$("#instructions").html("Do you have a <b>portfolio or linkedin</b> or something?");
-		$("#personal_link_input").show().focus();
-		$("#back_btn").show();
-		$("#tab_1").addClass("activated");
-		$("#progressbar").val(15);
-	}else if(navCounter==6){
-		$("#instructions").html("Would you like to provide a <b>Personal statement</b>?<br/>I wouldn't judge if you don't.");
-		$("#statement").show();
-		// $("#statement_title").show();
-		$("#statement_title").focus();
-		$("#back_btn").show();
-		$("#tab_2").addClass("activated");
-		$("#progressbar").val(18);
-	}else if(navCounter==7){
-		$("#instructions").html("If you've had a <b>job</b> you should probably add it here.");
-		$("#work").show();
-		$("#employer").focus();
-		$("#tab_3").addClass("activated");
-		$("#progressbar").val(42);
-	}else if(navCounter==8){
-		$("#instructions").html("''Is our children learning?'' - G.W. Bush");
-		$("#schooling").show();
-		$("#degree").focus();
-		$("#tab_4").addClass("activated");
-		$("#progressbar").val(67);
-	}else if(navCounter==9){
-		$("#instructions").html("Can you actually do anything?");
-		$("#skills").show();
-		$("#skillsinput").focus();
-		$("#tab_5").addClass("activated");
-		$("#progressbar").val(90);
-	}else if(navCounter==10){
-		$("#settings").show();
-		$("#tab_6").addClass("activated");
-		$("#progressbar").val(100);
-	}
+}
+function loadStatement(){
+	letsHide();
+	$("#the_statement").show();
+	$("#statement_title").focus();
+	$("#progressbar").val(24);
+	$("#tab_2").addClass("activated");
+}
+function loadWork(){
+	letsHide();
+	$("#the_work").show();
+	$("#employer").focus();
+	$("#progressbar").val(36);
+	$("#tab_3").addClass("activated");
+}
+function loadEducation(){
+	letsHide();
+	$("#the_education").show();
+	$("#degree").focus();
+	$("#progressbar").val(48);
+	$("#tab_4").addClass("activated");
+}
+function loadSkills(){
+	letsHide();
+	$("#the_skills").show();
+	$("#skillsinput").focus();
+	$("#progressbar").val(60);
+	$("#tab_5").addClass("activated");
+}
+function loadSettings(){
+	letsHide();
+	$("#settings").show();
+	$("#progressbar").val(80);
+	$("#tab_6").addClass("activated");
+}
+function loadThanks(){
+	letsHide();
+	$("#thanks").show();
+	$("#progressbar").val(80);
 }
 
-
-//Add job control
-jobnum = 1;
-$("#new_job").click(function(){
-	saveFields();
-	$("#employer, #job_location, #job_time, #employer_desc, #title, #job_desc").val("");
-	$("#employer").focus();
-	if(jobnum==1){
-		$("#select_job").show();
-		$("#instructions").text("You know the drill. Second job This time.");
-		$("#select_job_1").removeClass("current_job");
-		$("#select_job_2").addClass("current_job");
-	}else if(jobnum==2){
-		$("#instructions").text("I'm limiting you to 3. Nobody cares about the rest.");
-		$("#new_job").prop("disabled",true);
-		$("#select_job_3").show();
-		$("#select_job_3").addClass("current_job");
-		$("#select_job_2").removeClass("current_job");
-	}
-	 $("article").animate({ scrollTop: 0 }, "slow");
-	 jobnum++;
-})
-
-$("#select_job_1").click(function(){
-	saveFields();
-	onJobNumer = 1;
-	// saveFields();
-	$(this).addClass("current_job");
-	$("#select_job_2, #select_job_3").removeClass("current_job");
-	$("#instructions").text("Go ahead. Edit your first job again.");
-	$("#employer").val(user_employer);
-	$("#job_location").val(user_job_location);
-	$("#job_time").val(user_job_time);
-	$("#employer_desc").val(user_emp_desc);
-	$("#title").val(user_emp_desc);
-	$("#job_desc").val(user_job_desc);
-	jobnum=1;
-})
-$("#select_job_2").click(function(){
-	saveFields();
-	onJobNumer = 2;
-	// saveFields();
-	$(this).addClass("current_job");
-	$("#select_job_1, #select_job_3").removeClass("current_job");
-	$("#instructions").text("Fixing job #2? Did you mess up or something?");
-	$("#employer").val(user_employer2);
-	$("#job_location").val(user_job_location2);
-	$("#job_time").val(user_job_time2);
-	$("#employer_desc").val(user_emp_desc2);
-	$("#title").val(user_job_title2);
-	$("#job_desc").val(user_job_desc2);
-	jobnum=2;
-})
-$("#select_job_3").click(function(){
-	saveFields();
-	onJobNumer = 3;
-	$(this).addClass("current_job");
-	$("#select_job_2, #select_job_1").removeClass("current_job");
-	$("#instructions").text("Fix it. Fit it real good.");
-	$("#employer").val(user_employer3);
-	$("#job_location").val(user_job_location3);
-	$("#job_time").val(user_job_time3);
-	$("#employer_desc").val(user_emp_desc3);
-	$("#title").val(user_job_title3);
-	$("#job_desc").val(user_job_desc3);
-	jobnum=3;
-})
+$("#tab_intro").click(function(){loadIntro();})
+$("#tab_1, #intro_begin").click(function(){loadPersonal();})
+$("#tab_2, #personal_continue").click(function(){loadStatement();})
+$("#tab_3, #statement_continue").click(function(){loadWork();})
+$("#tab_4, #work_continue").click(function(){loadEducation();})
+$("#tab_5, #education_continue").click(function(){loadSkills();})
+$("#tab_6, #skills_continue").click(function(){loadSettings();})
 
 
 
-//Add school control
-schoolnum = 1;
-$("#new_school").click(function(){
-	saveFields();
-	$("#degree, #school, #school_location, #graduation").val("");
-	$("#degree").focus();
-	if(schoolnum==1){
-		$("#instructions").text("You better not be putting your high school.");
-	}else if(schoolnum==2){
-		$("#instructions").text("Seriously? Three schools? Okay, einstein.");
-		$("#new_school").prop("disabled",true);
-	}
-	 $("article").animate({ scrollTop: 0 }, "slow");
-	 schoolnum++;
-})
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Settings Control
@@ -385,62 +190,6 @@ function updateSettings(){
 
 
 
-//Theme control in lightbox
-currentTheme = 1;
-$("#current_theme").text(currentTheme);
-availThemes = 3;
-$("#available_themes").text(availThemes);
-
-$("#prev_theme").click(function(){
-	currentTheme--;
-	console.log("Next");
-	$("#current_theme").text(currentTheme);
-	checkThemePos();
-	switchTheme();
-});
-$("#next_theme").click(function(){
-	currentTheme++;
-	console.log("Back");
-	$("#current_theme").text(currentTheme);
-	checkThemePos();
-	switchTheme();
-});
-function checkThemePos(){
-	if(currentTheme==availThemes){
-		$("#next_theme").prop("disabled",true);
-	}else{
-		$("#next_theme").prop("disabled",false);
-	}
-	if(currentTheme==1){
-		$("#prev_theme").prop("disabled",true);
-	}else{
-		$("#prev_theme").prop("disabled",false);
-	}
-}
-function switchTheme(){
-	if(currentTheme==1){
-		$(".xcss").attr("disabled", "disabled");
-		$("#css_theme_1").removeAttr("disabled");
-		refreshTheme();
-		
-	}else if(currentTheme==2){
-		$(".xcss").attr("disabled", "disabled");
-		$("#css_theme_2").removeAttr("disabled");
-		refreshTheme();
-	}
-	else if(currentTheme==3){
-		$(".xcss").attr("disabled", "disabled");
-		$("#css_theme_3").removeAttr("disabled");
-		refreshTheme();
-	}
-}
-function refreshTheme(){
-	$("#print_page").fadeOut(0);
-	$("#print_page").animate({ zIndex: 0 });
-	$("#print_page").animate({ zIndex: 1000000 });
-	$("#print_page").fadeIn(100);
-}
-
 
 
 
@@ -477,7 +226,7 @@ $("#backtoedit").click(function(){
 
 
 // Preview Button
-$("#preview_btn, #choose_theme").click(function(){
+$("#preview_btn").click(function(){
 	saveFields();
 	updateSettings();
 	generatePDF();
@@ -486,7 +235,6 @@ $("#preview_btn, #choose_theme").click(function(){
 	$("#pdf_lightbox").fadeIn(100);
 	$("#save_from_preview").fadeIn(100);
 	$("#print_page").fadeIn(100);
-	// $("#adjustments").fadeIn(100);
 })
 // Hide Preview
 $("#hide_preview").click(function(){
@@ -510,114 +258,169 @@ function saveFields(){
 	user_statement_title = $("#statement_title").val();
 	user_statement = $("#personal_statement_input").val();
 
-	if(jobnum==1){
-		user_employer = $("#employer").val();
-		user_job_location = $("#job_location").val();
-		user_job_time = $("#job_time").val();
-		user_emp_desc = $("#employer_desc").val();
-		user_job_title = $("#title").val();
-		user_job_desc = $("#job_desc").val();
-	}else if(jobnum==2){
-		user_employer2 = $("#employer").val();
-		user_job_location2 = $("#job_location").val();
-		user_job_time2 = $("#job_time").val();
-		user_emp_desc2 = $("#employer_desc").val();
-		user_job_title2 = $("#title").val();
-		user_job_desc2 = $("#job_desc").val();
-	}else if(jobnum==3){
-		user_employer3 = $("#employer").val();
-		user_job_location3 = $("#job_location").val();
-		user_job_time3 = $("#job_time").val();
-		user_emp_desc3 = $("#employer_desc").val();
-		user_job_title3 = $("#title").val();
-		user_job_desc3 = $("#job_desc").val();
-	}
-	if(schoolnum==1){
-		user_degree = $("#degree").val();
-		user_school = $("#school").val();
-		user_school_location = $("#school_location").val();
-		user_school_grad = $("#graduation").val();
-	}else if(schoolnum==2){
-		user_degree2 = $("#degree").val();
-		user_school2 = $("#school").val();
-		user_school_location2 = $("#school_location").val();
-		user_school_grad2 = $("#graduation").val();
-	}else if(schoolnum==3){
-		user_degree3 = $("#degree").val();
-		user_school3 = $("#school").val();
-		user_school_location3 = $("#school_location").val();
-		user_school_grad3 = $("#graduation").val();
-	}
+	job_1_emp = $("#employer").val();
+	job_1_loc = $("#job_location").val();
+	job_1_time = $("#job_time").val();
+	job_1_emp_desc = $("#employer_desc").val();
+	job_1_title = $("#title").val();
+	job_1_desc = $("#job_desc").val();
+	job_2_emp = $("#employer2").val();
+	job_2_loc = $("#job_location2").val();
+	job_2_time = $("#job_time2").val();
+	job_2_emp_desc = $("#employer_desc2").val();
+	job_2_title = $("#title2").val();
+	job_2_desc = $("#job_desc2").val();
+	job_3_emp = $("#employer3").val();
+	job_3_loc = $("#job_location3").val();
+	job_3_time = $("#job_time3").val();
+	job_3_emp_desc = $("#employer_desc3").val();
+	job_3_title = $("#title3").val();
+	job_3_desc = $("#job_desc3").val();
+
+	degree_1 = $("#degree").val();
+	school_1 = $("#school").val();
+	school_loc_1 = $("#school_location").val();
+	grad_1 = $("#graduation").val();
+	gpa_1 = $("#gpa").val();
+	degree_2 = $("#degree2").val();
+	school_2 = $("#school2").val();
+	school_loc_2 = $("#school_location2").val();
+	grad_2 = $("#graduation2").val();
+	gpa_2 = $("#gpa2").val();
+	degree_3 = $("#degree3").val();
+	school_3 = $("#school3").val();
+	school_loc_3 = $("#school_location3").val();
+	grad_3 = $("#graduation3").val();
+	gpa_3 = $("#gpa3").val();
+
+	
 	user_skills = $("#skillsinput").val();
+
 	saveLocal();
 }
 
 // Local storage stuff
 function saveLocal(){
-	localStorage.setItem('dataSavedName', user_name);
-	localStorage.setItem('dataSavedEmail', user_email);
-	localStorage.setItem('dataSavedPhone', user_phone);
-	localStorage.setItem('dataSavedLocation', user_location);
-	localStorage.setItem('dataSavedUrl', user_link);
+	localStorage.setItem('name', user_name);
+	localStorage.setItem('email', user_email);
+	localStorage.setItem('phone', user_phone);
+	localStorage.setItem('location', user_location);
+	localStorage.setItem('url', user_link);
 
-	localStorage.setItem('dataSavedStatementTitle', user_statement_title);
-	localStorage.setItem('dataSavedStatement', user_statement);
+	localStorage.setItem('statementTitle', user_statement_title);
+	localStorage.setItem('statement', user_statement);
 
-	localStorage.setItem('dataSavedEmp', user_employer);
-	localStorage.setItem('dataSavedJobLoc', user_job_location);
-	localStorage.setItem('dataSavedJobTime', user_job_time);
-	localStorage.setItem('dataSavedEmpDesc', user_emp_desc);
-	localStorage.setItem('dataSavedJobTitle', user_job_title);
-	localStorage.setItem('dataSavedJobDesc', user_job_desc);
+	localStorage.setItem('emp1', job_1_emp);
+	localStorage.setItem('jobLoc1', job_1_loc);
+	localStorage.setItem('jobTime1', job_1_time);
+	localStorage.setItem('jobEmpDesc1', job_1_emp_desc);
+	localStorage.setItem('jobTitle1', job_1_title);
+	localStorage.setItem('jobDesc1', job_1_desc);
+	localStorage.setItem('emp2', job_2_emp);
+	localStorage.setItem('jobLoc2', job_2_loc);
+	localStorage.setItem('jobTime2', job_2_time);
+	localStorage.setItem('jobEmpDesc2', job_2_emp_desc);
+	localStorage.setItem('jobTitle2', job_2_title);
+	localStorage.setItem('jobDesc2', job_2_desc);
+	localStorage.setItem('emp3', job_3_emp);
+	localStorage.setItem('jobLoc3', job_3_loc);
+	localStorage.setItem('jobTime3', job_3_time);
+	localStorage.setItem('jobEmpDesc3', job_3_emp_desc);
+	localStorage.setItem('jobTitle3', job_3_title);
+	localStorage.setItem('jobDesc3', job_3_desc);
 
-	localStorage.setItem('dataSavedEmp2', user_employer2); localStorage.setItem('dataSavedJobLoc2', user_job_location2); localStorage.setItem('dataSavedJobTime2', user_job_time2); localStorage.setItem('dataSavedEmpDesc2', user_emp_desc2); localStorage.setItem('dataSavedJobTitle2', user_job_title2); localStorage.setItem('dataSavedJobDesc2', user_job_desc2);
-	localStorage.setItem('dataSavedEmp3', user_employer3); localStorage.setItem('dataSavedJobLoc3', user_job_location3); localStorage.setItem('dataSavedJobTime3', user_job_time3); localStorage.setItem('dataSavedEmpDesc3', user_emp_desc3); localStorage.setItem('dataSavedJobTitle3', user_job_title3); localStorage.setItem('dataSavedJobDesc3', user_job_desc3);
+	localStorage.setItem('degree1', degree_1);
+	localStorage.setItem('school1', school_1);
+	localStorage.setItem('schoolLoc1', school_loc_1);
+	localStorage.setItem('grad1', grad_1);
+	localStorage.setItem('gpa1', gpa_1);
+	localStorage.setItem('degree2', degree_2);
+	localStorage.setItem('school2', school_2);
+	localStorage.setItem('schoolLoc2', school_loc_2);
+	localStorage.setItem('grad2', grad_2);
+	localStorage.setItem('gpa2', gpa_2);
+	localStorage.setItem('degree3', degree_3);
+	localStorage.setItem('school3', school_3);
+	localStorage.setItem('schoolLoc3', school_loc_3);
+	localStorage.setItem('grad3', grad_3);
+	localStorage.setItem('gpa3', gpa_3);
 
-	localStorage.setItem('dataSavedDegree', user_degree);
-	localStorage.setItem('dataSavedSchool', user_school);
-	localStorage.setItem('dataSavedSchoolLoc', user_school_location);
-	localStorage.setItem('dataSavedGrad', user_school_grad);
-
-	localStorage.setItem('dataSavedSkills', user_skills);
+	localStorage.setItem('skills', user_skills);
 
 }
 function loadLocal(){
-	$("#personal_name_input").val(localStorage.getItem('dataSavedName'));
-	$("#personal_email_input").val(localStorage.getItem('dataSavedEmail'));
-	$("#personal_phone_input").val(localStorage.getItem('dataSavedPhone'));
-	$("#personal_location_input").val(localStorage.getItem('dataSavedLocation'));
-	$("#personal_link_input").val(localStorage.getItem('dataSavedUrl'));
+	$("#personal_name_input").val(localStorage.getItem('name'));
+	$("#personal_email_input").val(localStorage.getItem('email'));
+	$("#personal_phone_input").val(localStorage.getItem('phone'));
+	$("#personal_location_input").val(localStorage.getItem('location'));
+	$("#personal_link_input").val(localStorage.getItem('url'));
 
-	$("#personal_statement_input").val(localStorage.getItem('dataSavedStatement'));
-	$("#statement_title").val(localStorage.getItem('dataSavedStatementTitle'));
+	$("#personal_statement_input").val(localStorage.getItem('statementTitle'));
+	$("#statement_title").val(localStorage.getItem('statement'));
 
-	$("#employer").val(localStorage.getItem('dataSavedEmp'));
-	$("#job_location").val(localStorage.getItem('dataSavedJobLoc'));
-	$("#job_time").val(localStorage.getItem('dataSavedJobTime'));
-	$("#employer_desc").val(localStorage.getItem('dataSavedEmpDesc'));
-	$("#title").val(localStorage.getItem('dataSavedJobTitle'));
-	$("#job_desc").val(localStorage.getItem('dataSavedJobDesc'));
+	$("#employer").val(localStorage.getItem('emp1'));
+	$("#job_location").val(localStorage.getItem('jobLoc1'));
+	$("#job_time").val(localStorage.getItem('jobTime1'));
+	$("#employer_desc").val(localStorage.getItem('jobEmpDesc1'));
+	$("#title").val(localStorage.getItem('jobTitle1'));
+	$("#job_desc").val(localStorage.getItem('jobDesc1'));
+	$("#employer2").val(localStorage.getItem('emp2'));
+	$("#job_location2").val(localStorage.getItem('jobLoc2'));
+	$("#job_time2").val(localStorage.getItem('jobTime2'));
+	$("#employer_desc2").val(localStorage.getItem('jobEmpDesc2'));
+	$("#title2").val(localStorage.getItem('JobTitle2'));
+	$("#job_desc2").val(localStorage.getItem('JobDesc2'));
+	$("#employer3").val(localStorage.getItem('emp3'));
+	$("#job_location3").val(localStorage.getItem('JobLoc3'));
+	$("#job_time3").val(localStorage.getItem('jobTime3'));
+	$("#employer_desc3").val(localStorage.getItem('jobEmpDesc3'));
+	$("#title3").val(localStorage.getItem('jobTitle3'));
+	$("#job_desc3").val(localStorage.getItem('jobDesc3'));
 
-	user_employer2 = localStorage.getItem('dataSavedEmp2');
-	user_job_location2 = localStorage.getItem('dataSavedJobLoc2');
-	user_job_time2 = localStorage.getItem('dataSavedJobTime2');
-	user_emp_desc2 = localStorage.getItem('dataSavedEmpDesc2');
-	user_job_title2 = localStorage.getItem('dataSavedJobTitle2');
-	user_job_desc2 = localStorage.getItem('dataSavedJobDesc2');
 
-	user_employer3 = localStorage.getItem('dataSavedEmp3');
-	user_job_location3 = localStorage.getItem('dataSavedJobLoc3');
-	user_job_time3 = localStorage.getItem('dataSavedJobTime3');
-	user_emp_desc3 = localStorage.getItem('dataSavedEmpDesc3');
-	user_job_title3 = localStorage.getItem('dataSavedJobTitle3');
-	user_job_desc3 = localStorage.getItem('dataSavedJobDesc3');
+	$("#degree").val(localStorage.getItem('degree1'));
+	$("#school").val(localStorage.getItem('school1'));
+	$("#school_location").val(localStorage.getItem('schoolLoc1'));
+	$("#graduation").val(localStorage.getItem('grad1'));
+	$("#gpa").val(localStorage.getItem('gpa1'));
+	$("#degree2").val(localStorage.getItem('degree2'));
+	$("#school2").val(localStorage.getItem('school2'));
+	$("#school_location2").val(localStorage.getItem('schoolLoc2'));
+	$("#graduation2").val(localStorage.getItem('grad2'));
+	$("#gpa2").val(localStorage.getItem('gpa2'));
+	$("#degree3").val(localStorage.getItem('degree3'));
+	$("#school3").val(localStorage.getItem('school3'));
+	$("#school_location3").val(localStorage.getItem('schoolLoc3'));
+	$("#graduation3").val(localStorage.getItem('grad3'));
+	$("#gpa3").val(localStorage.getItem('gpa3'));
 
-	$("#degree").val(localStorage.getItem('dataSavedDegree'));
-	$("#school").val(localStorage.getItem('dataSavedSchool'));
-	$("#school_location").val(localStorage.getItem('dataSavedSchoolLoc'));
-	$("#graduation").val(localStorage.getItem('dataSavedGrad'));
 
-	$("#skillsinput").val(localStorage.getItem('dataSavedSkills'));
+	$("#skillsinput").val(localStorage.getItem('skills'));
+
+	if (localStorage.edu1) {
+		$("#enable_edu_1").prop('checked', true);
+		$('#edu_one > input').prop('disabled', false);
+	}
+	if (localStorage.edu2) {
+		$("#enable_edu_2").prop('checked', true);
+		$('#edu_two > input').prop('disabled', false);
+	}
+	if (localStorage.edu3) {
+		$("#enable_edu_3").prop('checked', true);
+		$('#edu_three > input').prop('disabled', false);
+	}
+	if (localStorage.work1) {
+		$("#enable_work_1").prop('checked', true);
+		$('#work_one > input, #work_one > textarea').prop('disabled', false);
+	}
+	if (localStorage.work2) {
+		$("#enable_work_2").prop('checked', true);
+		$('#work_two > input, #work_two > textarea').prop('disabled', false);
+	}
+	if (localStorage.work3) {
+		$("#enable_work_3").prop('checked', true);
+		$('#work_three > input, #work_three > textarea').prop('disabled', false);
+	}
 }
 
 // Generate the Actual PDF and call print function
@@ -632,54 +435,50 @@ function generatePDF(){
 	$("#pdf_link").html(user_link);
 	$("#pdf_statement_title").html(user_statement_title);
 	$("#pdf_statement").html(user_statement);
-	
-	$("#job_1_employer").html(user_employer);
-	$("#job_1_loc").html(user_job_location);
-	$("#job_1_time").html(user_job_time);
-	$("#pdf_job1_emp_desc").html(user_emp_desc);
-	$("#job1_title").html(user_job_title);
-	user_job_desc_split = user_job_desc.replace(/\*/g, '&nbsp; &nbsp; \u2219');
-	user_job_desc_lines = user_job_desc_split.replace(/\n\r?/g, '<br/>');
-	$("#pdf_job1_job_desc").html(user_job_desc_lines);
-	
-	if(!user_job_desc2 == ""){
-		$("#job_2_employer").html(user_employer2);
-		$("#job_2_loc").html(user_job_location2);
-		$("#job_2_time").html(user_job_time2);
-		$("#pdf_job2_emp_desc").html(user_emp_desc2);
-		$("#job2_title").html(user_job_title2);
-	
-		user_job_desc_split2 = user_job_desc2.replace(/\*/g, '&nbsp; &nbsp; \u2219');
-		user_job_desc_lines2 = user_job_desc_split2.replace(/\n\r?/g, '<br/>');
-		$("#pdf_job2_job_desc").html(user_job_desc_lines2);
-	}
-	
 
-	if(!user_job_desc3 == ""){
-		$("#job_3_employer").html(user_employer3);
-		$("#job_3_loc").html(user_job_location3);
-		$("#job_3_time").html(user_job_time3);
-		$("#pdf_job3_emp_desc").html(user_emp_desc3);
-		$("#job3_title").html(user_job_title3);
+	job_1_desc_bullets = job_1_desc.replace(/\*/g, '&nbsp; &nbsp; \u2219');
+	job_2_desc_bullets = job_2_desc.replace(/\*/g, '&nbsp; &nbsp; \u2219');
+	job_3_desc_bullets = job_3_desc.replace(/\*/g, '&nbsp; &nbsp; \u2219');
+	job_1_desc_html = job_1_desc_bullets.replace(/\n\r?/g, '<br/>');
+	job_2_desc_html = job_2_desc_bullets.replace(/\n\r?/g, '<br/>');
+	job_3_desc_html = job_3_desc_bullets.replace(/\n\r?/g, '<br/>');
+
+	$("#job_1_employer").html(job_1_emp);
+	$("#job_1_loc").html(job_1_loc);
+	$("#job_1_time").html(job_1_time);
+	$("#pdf_job1_emp_desc").html(job_1_emp_desc);
+	$("#job1_title").html(job_1_title);
+	$("#pdf_job1_job_desc").html(job_1_desc_html);
+	$("#job_2_employer").html(job_2_emp);
+	$("#job_2_loc").html(job_2_loc);
+	$("#job_2_time").html(job_2_time);
+	$("#pdf_job2_emp_desc").html(job_2_emp_desc);
+	$("#job2_title").html(job_2_title);
+	$("#pdf_job2_job_desc").html(job_2_desc_html);
+	$("#job_3_employer").html(job_3_emp);
+	$("#job_3_loc").html(job_3_loc);
+	$("#job_3_time").html(job_3_time);
+	$("#pdf_job3_emp_desc").html(job_3_emp_desc);
+	$("#job3_title").html(job_3_title);
+	$("#pdf_job3_job_desc").html(job_3_desc_html);
 	
-		user_job_desc_split3 = user_job_desc3.replace(/\*/g, '&nbsp; &nbsp; \u2219');
-		user_job_desc_lines3 = user_job_desc_split3.replace(/\n\r?/g, '<br/>');
-		$("#pdf_job3_job_desc").html(user_job_desc_lines3);
-	}
 	
-	
-	$("#pdf_degree").html(user_degree);
-	$("#pdf_school").html(user_school);
-	$("#pdf_school_loc").html(user_school_location);
-	$("#pdf_graduation").html(user_school_grad);
-	$("#pdf_degree2").html(user_degree2);
-	$("#pdf_school2").html(user_school2);
-	$("#pdf_school_loc2").html(user_school_location2);
-	$("#pdf_graduation2").html(user_school_grad2);
-	$("#pdf_degree3").html(user_degree3);
-	$("#pdf_school3").html(user_school3);
-	$("#pdf_school_loc3").html(user_school_location3);
-	$("#pdf_graduation3").html(user_school_grad3);
+	$("#pdf_degree").html(degree_1);
+	$("#pdf_school").html(school_1);
+	$("#pdf_school_loc").html(school_loc_1);
+	$("#pdf_graduation").html(grad_1);
+	$("#pdf_gpa").html(gpa_1 + " GPA");
+	$("#pdf_degree2").html(degree_2);
+	$("#pdf_school2").html(school_2);
+	$("#pdf_school_loc2").html(school_loc_2);
+	$("#pdf_graduation2").html(grad_2);
+	$("#pdf_gpa2").html(gpa_2 + " GPA");
+	$("#pdf_degree3").html(degree_3);
+	$("#pdf_school3").html(school_3);
+	$("#pdf_school_loc3").html(school_loc_3);
+	$("#pdf_graduation3").html(grad_3);
+	$("#pdf_gpa3").html(gpa_3 + " GPA");
+
 
 	user_skills_split = user_skills.replace(/,/g, ' \u2219');
 	$("#pdf_skills").html(user_skills_split);
@@ -713,44 +512,66 @@ function checkEmpty(){
 	if(user_statement_title==""){$("#pdf_statement_title").hide();}
 	if(user_statement==""){$("#pdf_statement").hide();}
 
-	if(user_employer=="" && user_employer2=="" && user_employer3==""){$("#pdf_experience_section").hide();}
 
-	if(user_employer==""){$("#job_1_employer").hide();}
-	if(user_job_location==""){$("#job_1_loc").hide();}
-	if(user_job_time==""){$("#job_1_time").hide();}
-	if(user_emp_desc==""){$("#pdf_job1_emp_desc").hide();}
-	if(user_job_title==""){$("#job1_title").hide();}
-	if(user_job_desc==""){$("#pdf_job1_job_desc").hide();}
+	// work
+	if(!$("#enable_work_1").is(':checked')){
+		$("#pdf_job1").hide();
+	}else{
+		$("#pdf_job1").show();
+	}
+	if(!$("#enable_work_2").is(':checked')){
+		$("#pdf_job2").hide();
+	}else{
+		$("#pdf_job2").show();
+	}
+	if(!$("#enable_work_3").is(':checked')){
+		$("#pdf_job3").hide();
+	}else{
+		$("#pdf_job3").show();
+	}
+	if(!$("#enable_work_1").is(':checked') && !$("#enable_work_2").is(':checked') && !$("#enable_work_3").is(':checked')){
+		$("#pdf_experience_section").hide();
+	}else{
+		$("#pdf_experience_section").show();
+	}
 
-	if(user_employer2==""){$("#pdf_job2").hide();}
-	if(user_job_location2==""){$("#job_2_loc").hide();}
-	if(user_job_time2==""){$("#job_2_time").hide();}
-	if(user_emp_desc2==""){$("#pdf_job2_emp_desc").hide();}
-	if(user_job_title2==""){$("#job2_title").hide();}
-	if(user_job_desc2==""){$("#pdf_job2_job_desc").hide();}
+	// Education
+	if(!$("#enable_edu_1").is(':checked')){
+		$("#pdf_edu_1").hide();
+	}else{
+		$("#pdf_edu_1").show();
+	}
+	if(!$("#enable_edu_2").is(':checked')){
+		$("#pdf_edu_2").hide();
+	}else{
+		$("#pdf_edu_2").show();
+	}
+	if(!$("#enable_edu_3").is(':checked')){
+		$("#pdf_edu_3").hide();
+	}else{
+		$("#pdf_edu_3").show();
+	}
+	if(!$("#enable_edu_1").is(':checked') && !$("#enable_edu_2").is(':checked') && !$("#enable_edu_3").is(':checked')){
+		$("#pdf_education_section").hide();
+	}else{
+		$("#pdf_education_section").show();
+	}
+	if(gpa_1==""){
+		$("#pdf_gpa").hide();
+	}else{
+		$("#pdf_gpa").show();
+	}
+	if(gpa_2==""){
+		$("#pdf_gpa2").hide();
+	}else{
+		$("#pdf_gpa2").show();
+	}
+	if(gpa_3==""){
+		$("#pdf_gpa3").hide();
+	}else{
+		$("#pdf_gpa3").show();
+	}
 
-	if(user_employer3==""){$("#pdf_job3").hide();}
-	if(user_job_location3==""){$("#job_3_loc").hide();}
-	if(user_job_time3==""){$("#job_3_time").hide();}
-	if(user_emp_desc3==""){$("#pdf_job3_emp_desc").hide();}
-	if(user_job_title3==""){$("#job3_title").hide();}
-	if(user_job_desc3==""){$("#pdf_job3_job_desc").hide();}
-
-	if(user_degree=="" && user_degree2=="" && user_degree3==""){$("#pdf_education_section").hide();}
-	if(user_degree==""){$("#pdf_degree").hide();}
-	if(user_school==""){$("#pdf_school").hide();}
-	if(user_school_location==""){$("#pdf_school_loc").hide();}
-	if(user_school_grad==""){$("#pdf_graduation").hide();}
-
-	if(user_degree2==""){$("#pdf_degree2").hide();}
-	if(user_school2==""){$("#pdf_school2").hide();}
-	if(user_school_location2==""){$("#pdf_school_loc2").hide();}
-	if(user_school_grad2==""){$("#pdf_graduation2").hide();}
-
-	if(user_degree3==""){$("#pdf_degree3").hide();}
-	if(user_school3==""){$("#pdf_school3").hide();}
-	if(user_school_location3==""){$("#pdf_school_loc3").hide();}
-	if(user_school_grad3==""){$("#pdf_graduation3").hide();}
 
 	if(user_skills==""){$("#pdf_skills_section").hide();}
 	

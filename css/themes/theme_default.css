@@ -211,7 +211,10 @@
 		#pdf_school_loc3,
 		#pdf_graduation,
 		#pdf_graduation2,
-		#pdf_graduation3{
+		#pdf_graduation3,
+		#pdf_gpa,
+		#pdf_gpa2,
+		#pdf_gpa3{
 			font-size: 10pt;
 
 		}
@@ -221,7 +224,10 @@
 		#pdf_school_loc2:before,
 		#pdf_graduation2:before,
 		#pdf_school_loc3:before,
-		#pdf_graduation3:before {
+		#pdf_graduation3:before,
+		#pdf_gpa:before,
+		#pdf_gpa2:before,
+		#pdf_gpa3:before {
 			content: " \A0 \2022 \A0";
 		}
 
