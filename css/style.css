@@ -84,6 +84,51 @@ a{
 	}
 
 
+#sponsored_img{
+	opacity: 0;
+	float: left;
+	height: 60px;
+	/*height: 60px;*/
+	/*padding-top: 25px; padding-bottom: 10px;*/
+	transition:0.25s;
+}
+	#sponsored_img:hover{
+		cursor: normal;
+		/*opacity: 0.8;*/
+		opacity: 0;
+		transition:0.25s;
+	}
+.sponsored_img_small{
+	opacity: 0;
+		height: 45px;
+		float: left;
+		position: relative;
+		left: 5%; top: 12px;
+		transition:0.25s;
+	}
+		.sponsored_img_small:hover{
+			cursor: normal;
+			opacity: 0;
+			/*opacity: 0.8;*/
+			transition:0.25s;
+		}
+
+#lightbox_ad{
+	position: fixed;
+	height: 450px !important;
+	top:50%; margin-top: -225px;
+	display: block;
+	background-color: rgba(255,255,255,0.1);
+	float: left;
+	color:rgba(255,255,255,0.25);
+	text-transform: uppercase; color:#fff;
+	font-size: 7pt;
+	padding-top: 4px;
+	text-align: center;
+	display: none;
+}
+
+
 
 /*	==============================================
 	==============================================
@@ -231,7 +276,7 @@ article{
 		box-shadow: 0 3px 6px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.09);
 		box-sizing:border-box;
 		padding: 25px;
-		margin-bottom: 75px;
+		margin-bottom: 25px;
 		overflow: hidden;
 		z-index: 5000;
 	}
@@ -273,6 +318,7 @@ article{
 				text-align: left;
 				padding-left: 5%;
 			} 
+
 
 	label{
 		text-transform: uppercase;
@@ -386,11 +432,17 @@ article{
 		opacity: 0.75;
 	}
 
+	#intro_begin{
+		position: relative; 
+		top: 10px;
+		/*top: 25px;*/
+	}
 	#intro_begin,
 	#intro_reset{
-		width:100%;
+		width:60%;
 		margin-top: 25px;
 		border: none;
+		float: right;
 		background-color: transparent;
 		text-transform: uppercase;
 		font-weight: 400;
@@ -769,7 +821,7 @@ article{
 	margin-left: 15%;
 	height:25px;
 	position: absolute;
-	top: 20;
+	top: 25;
 	left: 0;
 	background-color: #f5414c;
 	font-size: 9pt;
@@ -792,6 +844,27 @@ article{
 		#promo a:hover{
 			border-bottom: none;
 		}
+
+
+
+#ad_box{
+	background-color: yellow;
+	top:10;
+	width: 100%;
+	height:100px;
+}
+	#ad_about{
+		text-align: center;
+		display: block;
+		box-sizing:border-box;
+		padding: 3px;
+		font-size: 8pt;
+		color:rgba(50,50,50,1);
+		opacity: 0.4;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
 
 
 

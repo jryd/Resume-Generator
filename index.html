@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>iNeedAResume | Create a resume</title>
+		<title>iNeedAResume | Create a free resume</title>
 
 		<meta charset="utf-8">
 		<meta name="theme-color" content="#f5414c">
@@ -76,19 +76,19 @@
 
 
 		<article>
-
-			<div id="promo" class="animated pulse" onclick="window.open('http://ineedinvoic.es')">
-				Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!
-			</div>
-
+<!-- 
+			<div id="promo" class="animated pulse" onclick="window.open('https://docs.google.com/document/d/1Q9bszmPLLTk4xDBXuboUoAQNQg-W15y-h0gRAxKKNzE/edit?usp=sharing')">
+				Want more languages? Click here to help translate it!</div>
+			</div> -->
 
 			<progress value="0" max="100" id="progressbar"></progress>	
 
 			<div id="branding" onclick="_gaq.push(['_trackEvent', 'link', 'click', 'Go to Mitchs.co']);">developed by mitch samuels</div>
 
-			<section id="intro_box" class="animated pulse">
+
+			<section id="intro_box" class="animated pulse" style="margin-bottom:20px;">
 				<h4><i class="ion-document"></i><br/><b>i</b>need<b>a</b>resu.me</h4>
-				<h5>create a R&eacute;sum&eacute; in seconds<br/><br/>See an example <a href="src/example.pdf" target="_blank">here</a></h5>
+				<h5>generate a R&eacute;sum&eacute; in seconds<br/><br/>See an example <a href="src/example.pdf" target="_blank">here</a></h5>
 
 				<ul>
 					<li>
@@ -121,10 +121,18 @@
 					</li>
 				</ul>
 
+
+				<img src="src/looksharp.png" id="sponsored_img">
+				<!-- <img src="src/looksharp.png" id="sponsored_img" onclick="window.open('https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete')"> -->
 				<button id="intro_reset">Start Over? <i class="ion-refresh"></i></button>
 				<div id="confirm_reset">Are you sure? <a href="#" id="clear_data_yes">Yes</a> / <a href="#" id="clear_data_no">No</a></div>
 				<button id="intro_begin">Begin <i class="ion-arrow-right-c"></i></button>
 			</section>
+
+
+
+			
+
 
 
 			<section id="the_personal" class="animated pulse">
@@ -135,6 +143,7 @@
 				<label>Not to be creepy, but where are you located?</label><input type="text" id="personal_location_input" placeholder="Madison, WI">
 				<label>Do you have an online portfolio or linkedin?</label><input type="text" id="personal_link_input" placeholder="http://linkedin.com/in/mitchas">
 
+				<img src="src/looksharp.png" class="sponsored_img_small">
 				<button class="next_button" id="personal_continue">Continue To Statement <i class="ion-arrow-right-c"></i></button>
 			</section>
 
@@ -145,12 +154,13 @@
 				<textarea id="personal_statement_input" maxlength="1200" placeholder="I would love to work here because I heard you have the gnarliest lunch buffet..."></textarea>
 				<div id="statement_feedback">For your own good, you only have <span id="statement_remaining"></span> characters left.</div>
 
+				<img src="src/looksharp.png" class="sponsored_img_small">
 				<button class="next_button" id="statement_continue">Continue To Work <i class="ion-arrow-right-c"></i></button>
 			</section>
 
 
 			<span id="the_work" class="animated pulse">
-				<section style="margin-bottom:20px;">
+				<section style="margin-bottom:25px;">
 					<h2 class="selector_heading">
 						You can have up to 3 jobs<br/>
 						leave blank anything you don't need<br/><br/>
@@ -168,7 +178,8 @@
 					<label>Job Description:</label><textarea id="job_desc" placeholder="Responsible for the development of Google.com, nothing serious." disabled></textarea>
 					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
 
-					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+					<img src="src/looksharp.png" class="sponsored_img_small">
+					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
 				</section>
 				<section id="work_two" class="animated pulse">
 					<br/>
@@ -182,7 +193,8 @@
 					<label>Job Description:</label><textarea id="job_desc2" placeholder="Manager of investing master of fraud. I know investment fraud like the back of my hand, and I have years of experience using ratholes and Swiss bank accounts." disabled></textarea>
 					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
 
-					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+					<img src="src/looksharp.png" class="sponsored_img_small">
+					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
 				</section>
 				<section id="work_three" class="animated pulse">
 					<br/>
@@ -196,14 +208,15 @@
 					<label>Job Description:</label><textarea id="job_desc3" placeholder="I was in charge of [redacted] and the [redacted] project which assassinated [redacted] and gave power to [redacted]" disabled></textarea>
 					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
 
-					<button class="next_button" id="work_continue">Continue To Projects <i class="ion-arrow-right-c"></i></button>
+					<img src="src/looksharp.png" class="sponsored_img_small">
+					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
 				</section>
 			</span>
 
 
 
 			<span id="the_education" class="animated pulse">
-				<section style="margin-bottom:20px;">
+				<section style="margin-bottom:25px;">
 					<h2 class="selector_heading">
 						You can have up to 3 schools<br/>
 						leave blank anything you don't need<br/><br/>
@@ -218,6 +231,7 @@
 					<label>Graduation Year:</label><input type="text" id="graduation" placeholder="2015" disabled>
 					<label>Grade Point Average:</label><input type="text" id="gpa" placeholder="3.24" disabled>
 
+					<img src="src/looksharp.png" class="sponsored_img_small">
 					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
 				</section>
 				<section id="edu_two" class="animated pulse">
@@ -229,6 +243,7 @@
 					<label>Graduation Year:</label><input type="text" id="graduation2" placeholder="2017" disabled>
 					<label>Grade Point Average:</label><input type="text" id="gpa2" placeholder="3.24" disabled>
 
+					<img src="src/looksharp.png" class="sponsored_img_small">
 					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
 				</section>
 				<section id="edu_three" class="animated pulse">
@@ -240,6 +255,7 @@
 					<label>Graduation Year:</label><input type="text" id="graduation3" placeholder="2020" disabled>
 					<label>Grade Point Average:</label><input type="text" id="gpa3" placeholder="3.24" disabled>
 
+					<img src="src/looksharp.png" class="sponsored_img_small">
 					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
 				</section>
 			</span>
@@ -251,6 +267,7 @@
 
 				<label>Skills (Seperate with commas):</label><input type="text" id="skillsinput" placeholder="HTML, CSS, Javascript, Adobe Suite">
 
+				<img src="src/looksharp.png" class="sponsored_img_small">
 				<button class="next_button" id="skills_continue">Continue To Settings <i class="ion-arrow-right-c"></i></button>
 			</section>
 
@@ -294,6 +311,8 @@
 						</div>
 					</li>
 				</ul>
+
+				<img src="src/looksharp.png" class="sponsored_img_small">
 				<button id="generate" onclick="_gaq.push(['_trackEvent', 'link', 'click', 'Generate Resume']);">Save my resume!</button>
 
 			</section>
@@ -302,15 +321,39 @@
 			<section id="thanks" class="animated pulse">
 				<h2>Good luck with your job search!</h2>
 				<p id="thanks_text">
-					If something doesn't look right, click the sidebar to go back and edit!
-					<br/><br/>
-					If you liked this tool, share it with your friends!<br/>Follow <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a> for updates and new websites!
+					<b>If something doesn't look right, click the sidebar to go back and edit!</b>
+					<!-- <br/><br/><br/>
+					Add your new resume to your Looksharp profile. Get discovered by the top employers in your industry. <a href="https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete" target="_blank">Get started</a> -->
+					<br/><br/><br/>
+					<b>If you liked this tool, share it with your friends!<br/>Follow <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a> for updates and new websites!</b>
 					<br/><br/>
 					If you find a bug or have other feedback, shoot me an email at <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a>
 					<br/><br/>
-					Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!
+					<b>Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!</b>
 				</p>
 			</section>
+
+
+
+			<!-- Advertisement -->
+			<section class="animated pulse" style="margin-bottom:75px; padding:0px;">
+				<small id="ad_about">This site is free thanks to <!-- <a href="https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete" target="_blank">Looksharp</a> & --> this tiny ad, please don't use an adblocker :)</small>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- iNeedAResume Bottom -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-4815459630320404"
+				     data-ad-slot="9735597921"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</section>
+
+
+
+
+
 
 		</article>
 
@@ -319,6 +362,11 @@
 
 		<!-- PDF Lightbox -->
 		<div id="pdf_lightbox" class="noselect">
+
+			<!-- Lightbox ad -->
+			<div id="lightbox_ad">
+				 &nbsp;Advertisement:&nbsp; 
+			</div>
 			<!-- <h6>Use the arrows to switch themes.<br/>Theme <span id="current_theme">X</span> of <span id="available_themes">XX</span></h6> -->
 			<h6 style="position:relative; top:300px;">Come on, fill in some more fields,<br/>To see what it'll actually look like!</h6>
 			<div id="hide_preview" class="noselect"><i class="ion-ios-close-empty"></i></div>

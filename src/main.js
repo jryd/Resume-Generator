@@ -20,6 +20,7 @@ $( document ).ready(function() {
 	if (localStorage.name) {
 	    $("#intro_reset").show();
 		$("#intro_begin").html("Continue Editing <i class='ion-arrow-right-c'></i>");
+		$("#intro_begin").css( "top", "0px" );
 	}
 
 });
@@ -51,14 +52,14 @@ $("#branding").click(function(){
 //Navigation
 function letsHide(){
 	$("nav > ul > li").removeClass("activated");
-	$("#promo").hide();
-	$("#intro_box, #the_personal, #the_statement, #the_work, #the_education, #the_skills, #settings, #thanks").hide();
+	$("#intro_box, #the_personal, #the_statement, #the_work, #the_education, #the_skills, #settings, #thanks, #promo, #ad_box").hide();
 	saveFields();
 }
 function loadIntro(){
 	letsHide();
 	$("#intro_box").show();
 	$("#promo").show();
+	$("#ad_box").show();
 	$("#progressbar").val(1);
 	$("#tab_intro").addClass("activated");
 }
