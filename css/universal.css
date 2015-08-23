@@ -1,0 +1,227 @@
+/*
+=================================
+=================================
+			style.css
+
+main stylesheet for Test Data
+By Mitch Samuels
+04/12/2015
+
+		Table of Content:
+#0 Body, technical
+#1 Links, text, paragraphs
+#2 Universal styles
+#3 Element specific styles
+#4 Media Queries/Mobile
+=================================
+=================================
+*/
+
+
+/*
+  XXXXX        XXXXX  XXXXX  XXXXX  X    X
+  X   X   XX     X    X      X      X    X
+  X   X   XX     X    XXX    X      XXXXXX
+  X   X   XX     X    X      X      X    X
+  XXXXX          X    XXXXX  XXXXX  X    X
+*/
+
+*{
+  transition:0.25s;
+}
+input:focus, input:active { outline: none; }
+* {outline: none;}
+body{
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+
+
+
+
+
+
+/*
+    XX        XXXXX  XXXXX  X   X  XXXXX
+   X X    XX    X    X       X X     X
+     X    XX    X    XXX      X      X
+     X    XX    X    X       X X     X
+   XXXXX        X    XXXXX  X   X    X
+*/
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  padding: 0; margin: 0 auto;
+  color: #34394b;
+}
+
+h2{
+  font-weight: 700;
+  font-size: 22pt;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+h3{
+  font-size: 18pt;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+h4{
+  font-weight: 700;
+  font-size: 20pt;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+/*Buttons*/
+/*Standard Rounder Button*/
+.btn_standard{
+    text-align: center;
+    text-decoration: none;
+    height: 46px; width: auto;
+    line-height: 1.4em;
+    letter-spacing: 2px;
+    color: #00d68e;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 11pt;
+    box-sizing:border-box;
+    text-transform: uppercase;
+    box-sizing:border-box;
+    padding: 11px 20px 10px 20px;
+    margin: 0 1% 0% 0%;
+    border: 2px solid #00d68e;
+    border-radius: 35px;
+    transition:0.2s;
+  }	
+  	.btn-icon{padding: 13px 0 0 1px; height: 46px; width: 46px; text-align: center; line-height: 46px;}
+  	.padfix{padding-top: 12px; float: right; margin-top: 18px;}
+  .btn-green{ color: #1CD8D2; border-color: #1CD8D2;}
+    .btn-green:hover{
+      background-color: #1CD8D2; color: #fff; transition:0.2s; cursor: pointer;
+      background: -webkit-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* Chrome 10+, Saf5.1+ */
+      background:    -moz-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* FF3.6+ */
+      background:     -ms-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* IE10 */
+      background:      -o-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* Opera 11.10+ */
+      background:         linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* W3C */
+    }
+  .btn-blue{ color: #6767E5; border-color: #6767E5;}
+    .btn-blue:hover{
+      background-color: #6767E5; color: #fff; transition:0.2s; cursor: pointer;
+      background: -webkit-linear-gradient(120deg, #4776e6 10%, #8e54e3 90%); 
+      background:    -moz-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+      background:     -ms-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+      background:      -o-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+      background:         linear-gradient(120deg, #4776e6 10%, #8e54e3 90%);
+    }
+    .btn-yellow{ color: #FFBF3D; border-color: #FFBF3D;}
+    .btn-yellow:hover{
+      background-color: #FFBF3D; color: #fff; transition:0.2s; cursor: pointer;
+      background: -webkit-linear-gradient(90deg, #ffb347 10%, #ffcc33 90%); /* Chrome 10+, Saf5.1+ */
+      background:    -moz-linear-gradient(90deg, #ffb347 10%, #ffcc33 90%); /* FF3.6+ */
+      background:     -ms-linear-gradient(90deg, #ffb347 10%, #ffcc33 90%); /* IE10 */
+      background:      -o-linear-gradient(90deg, #ffb347 10%, #ffcc33 90%); /* Opera 11.10+ */
+      background:         linear-gradient(90deg, #ffb347 10%, #ffcc33 90%); /* W3C */
+    }
+    .btn-white{color:#fff; border-color:#fff; transition:0.2s;}
+    .btn-white:hover{
+      	background-color: #fff; color: #F45C43; transition:0.2s; cursor: pointer;
+		background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
+		background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+		background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
+		background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
+		background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */    
+    }
+
+/*Gradients*/
+.greygradient{
+	background-color: #414345;
+	background: -webkit-linear-gradient(90deg, #414345 10%, #232526 90%); /* Chrome 10+, Saf5.1+ */
+ 	background:    -moz-linear-gradient(90deg, #414345 10%, #232526 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #414345 10%, #232526 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #414345 10%, #232526 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #414345 10%, #232526 90%); /* W3C */
+}
+.bluegradient{
+	background-color: #4776e6;
+	background: -webkit-linear-gradient(120deg, #4776e6 10%, #8e54e3 90%); 
+	background:    -moz-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:     -ms-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:      -o-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:         linear-gradient(120deg, #4776e6 10%, #8e54e3 90%);
+}
+.redgradient{
+	background-color: #eb3349;
+	background: -webkit-linear-gradient(90deg, #EB3349 10%, #F45C43 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #EB3349 10%, #F45C43 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #EB3349 10%, #F45C43 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #EB3349 10%, #F45C43 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #EB3349 10%, #F45C43 90%); /* W3C */ 
+}
+.greengradient{
+	background-color: #1CD8D2; 
+  	background: -webkit-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* Chrome 10+, Saf5.1+ */
+  	background:    -moz-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* FF3.6+ */
+  	background:     -ms-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* IE10 */
+  	background:      -o-linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* Opera 11.10+ */
+  	background:         linear-gradient(90deg, #1CD8D2 10%, #93EDC7 150%); /* W3C */
+}
+
+
+
+/*Select styling*/
+select {
+	padding:12px;
+	width:auto;
+	font-family:arial,tahoma;
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-webkit-appearance: none;
+	border:0;
+	outline:0;
+	-webkit-transition:0.3s ease all;
+		   -moz-transition:0.3s ease all;
+		    -ms-transition:0.3s ease all;
+		     -o-transition:0.3s ease all;
+		        transition:0.3s ease all;
+}
+  .selectbox{
+  	display: inline-block;
+    color: #4776e6;
+    clear: both;
+    margin: 0 auto;
+    margin-top: 5px;
+    background-color: #fff;
+    font-size: 11pt;
+    border: 1px solid #4776e6;
+  }
+
+  .selectbox:hover{
+  	background-color: #4776e6;
+	background: -webkit-linear-gradient(120deg, #4776e6 10%, #8e54e3 90%); 
+	background:    -moz-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:     -ms-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:      -o-linear-gradient(90deg, #4776e6 10%, #8e54e3 90%); 
+	background:         linear-gradient(120deg, #4776e6 10%, #8e54e3 90%);
+	cursor: pointer;
+  	color: #fff;
+  	background-color: #4776e6;
+  }
+

@@ -1,0 +1,589 @@
+<html>
+	<head>
+		<title>ineedaresume | CREATE</title>
+
+		<meta charset="utf-8">
+		<meta name="theme-color" content="#4776e6">
+		<meta name="description" content="Ineedaresu.me is a super fast, super simple, and completely free way to build a beautiful resume in minutes. Fill out your details, choose your theme, and either print your resume directly or save it to your computer!">
+		<meta name="author" content="Mitch Samuels">
+		<meta name="keywords" content="Simple, Quick, resume, CV, contact, job, work, career, fair, builder, minimal, Mitch Samuels, resume, generator, creator, maker, resumay, job, jobs, career, javascript, pdf, word, print, creating, make, generate, apply, applicant">
+
+		<!-- Responsive viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/ico" href="../src/favicon.ico" />
+
+		<!-- Thumbnail for sharing -->
+		<meta name="thumbnail" content="http://ineedaresu.me/src/logosmall.png" />
+
+		<!-- Universal stylesheet -->
+		<link rel="stylesheet" type="text/css" href="../css/universal.css">
+		<!-- App specific stylesheet -->
+		<link rel="stylesheet" type="text/css" href="../css/app.css">
+		<!-- Media queries -->
+		<link rel="stylesheet" type="text/css" href="../css/media.css">
+
+		<!-- Doc theme stylesheets -->
+		<link rel="stylesheet" type="text/css" href="../css/themes/theme_default.css" id="css_theme_1">
+
+		<!-- Print control stylesheet -->
+		<link rel="stylesheet" type="text/css" href="../css/print.css">
+
+		
+
+
+
+
+
+		<!-- Google Webfonts for theming -->
+		<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Merriweather:400,300,700" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+		<!-- Ionicons CDN -->
+		<link href="../css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+
+		<!--
+		  <PageMap>
+		    <DataObject type="thumbnail">
+		      <Attribute name="src" value="http://ineedaresu.me/src/logosmall.png"/>
+		      <Attribute name="width" value="300"/>
+		      <Attribute name="height" value="250"/>
+		    </DataObject>
+		  </PageMap>
+		-->
+
+
+	</head>
+	<body>
+
+	
+
+		<div id="mobilenav" class="bluegradient">
+			<img src="../src/logo.png">
+			<h1>ineedaresu.me</h1>
+			<div id="mobile_menu_btn"><i class="ion-navicon" id="mobile_menu_btn_icon"></i></div>
+		</div>
+
+		<div id="welcome_back" class="redgradient">
+			You've been here before. Would you like to load your previous entries?
+			<a id="welcome_close"><i class="ion-close"></i></a>
+			<a id="welcome_load"><i class="ion-checkmark"></i></a>
+		</div>
+
+		<nav class="bluegradient">
+			<h3 onclick="location.href='/'">
+				<img src="../src/logo.png">
+				ineedaresu.me
+			</h3>
+			<ul>
+				<li onclick="javascript:showPersonalInfo(); toggleMobileMenu();" class="active" id="nav2">Personal Info</li>
+				<li onclick="javascript:showStatement(); toggleMobileMenu();" id="nav3">Statement</li>
+				<li onclick="javascript:showWork(); toggleMobileMenu();" id="nav4">Work</li>
+				<li onclick="javascript:showProjects(); toggleMobileMenu();" id="nav5">Projects</li>
+				<li onclick="javascript:showEducation(); toggleMobileMenu();" id="nav6">Education</li>
+				<li onclick="javascript:showSkills(); toggleMobileMenu();" id="nav7">Skills</li>
+				<li onclick="javascript:showSettings(); generatePDF(); checkEmpty(); toggleMobileMenu();" id="nav8">View Resume</li>
+			</ul>
+
+			
+
+
+		</nav>
+
+		<!-- Progress Bar -->
+		<progress value="0" max="100" id="loadProgress"></progress>
+
+		<!--
+			====================
+				   FORMS
+			====================
+								-->
+			<section class="forms" id="form">
+
+				<div class="formwrap" id="section_information">
+					<h6><i class="ion-happy-outline"></i>&nbsp; Personal Information</h6>
+
+					<label>Can I get your name?</label>
+					<input type="text" id="name" placeholder="Curtis Jackson">
+
+					<label>Please don't use your 6th grade email address.</label>
+					<input type="text" id="email" placeholder="horselover22@hotmail.com">
+
+					<label>What's your phone number?</label>
+					<input type="text" id="phone" placeholder="5073305897">
+
+					<label>What city are you looking in?</label>
+					<input type="text" id="location" placeholder="Madison, WI">
+
+					<label>Do you have an online portfolio or LinkedIn or something?</label>
+					<input type="text" id="link" placeholder="linkedin.com/in/mitchas">
+
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showStatement();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+				</div>
+
+
+				<div class="formwrap" id="section_statement">
+					<h6><i class="ion-ios-mic"></i>&nbsp; Statement</h6>
+
+					<label>Title of statement</label>
+					<input type="text" id="statement-title" placeholder="I need a job, yo.">
+
+					<label>Statement body text</label>
+					<textarea id="statement" placeholder="I applied for this job because it aligns with my career goals and I've also heard you guys have the gnarliest lunch buffet..."></textarea>
+					<br/>
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showWork();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+				</div>
+
+
+
+				<div class="formwrap" id="section_work">
+					<h6><i class="ion-ios-flask"></i>&nbsp; Work Experience</h6>
+					<p>You can have up to three jobs. In order for each one to show up, you must fill out the <i>employer</i> field.<br/>Switch between jobs using the dots.</p>
+
+					<div class="switch_dots">
+						Edit Job:
+						<span class="dot activedot" id="job1btn" onclick="javascript:loadJob1();">1</span>
+						<span class="dot" id="job2btn" onclick="javascript:loadJob2();">2</span>
+						<span class="dot" id="job3btn" onclick="javascript:loadJob3();">3</span>
+					</div>
+
+					<!-- 
+						x1 = employer
+						x2 = location
+						x3 = time
+						x4 = employer description
+						x5 = job title
+						x6 = job description
+					 -->
+
+					<div id="job1">
+						<label>Employer</label>
+						<input type="text" id="emp11" placeholder="Central Intelligence Agency">
+
+						<label>Location</label>
+						<input type="text" id="emp12" placeholder="Langley, VA">
+
+						<label>Time</label>
+						<input type="text" id="emp13" placeholder="July 2010 - Present">
+
+						<label>Short(ish) employee description</label>
+						<input type="text" id="emp14" placeholder="Confidential">
+
+						<label>Job Title</label>
+						<input type="text" id="emp15" placeholder="Confidential">
+
+						<label>Job Description</label>
+						<textarea id="emp16" placeholder="My responsibilities included [redacted], [redacted], and [redacted] until being promoted to director of [redacted] where my main responsibilities included carrying-out missions to forcefully remove the leaders of [redacted] and [redacted]."></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div id="job2">
+						<label>Employer</label>
+						<input type="text" id="emp21" placeholder="Stratton Oakmont">
+
+						<label>Location</label>
+						<input type="text" id="emp22" placeholder="New York, NY">
+
+						<label>Time</label>
+						<input type="text" id="emp23" placeholder="January 1985 - February 1989">
+
+						<label>Short(ish) employee description</label>
+						<input type="text" id="emp24" placeholder="Stratton Oakmont is the only company anyone should trust with investments.">
+
+						<label>Job Title</label>
+						<input type="text" id="emp25" placeholder="Fraud Detection Expert">
+
+						<label>Job Description</label>
+						<textarea id="emp26" placeholder="Manager of investing and master of fraud detection. It was my responsibility to make sure no shady deals were being made within the company."></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div id="job3">
+						<label>Employer</label>
+						<input type="text" id="emp31" placeholder="Google, Inc">
+
+						<label>Location</label>
+						<input type="text" id="emp32" placeholder="Mountain View, CA">
+
+						<label>Time</label>
+						<input type="text" id="emp33" placeholder="July 2008 - June 2010">
+
+						<label>Short(ish) employee description</label>
+						<input type="text" id="emp34" placeholder="Google is the leading search engine and a massive online company">
+
+						<label>Job Title</label>
+						<input type="text" id="emp35" placeholder="Full Stack Developer">
+
+						<label>Job Description</label>
+						<textarea id="emp36" placeholder="I made things and they paid me. That's about it."></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showProjects();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+				</div>
+
+
+
+
+				<div class="formwrap" id="section_projects">
+					<h6><i class="ion-ios-lightbulb"></i>&nbsp; Projects & Vonunteering</h6>
+					<p>First off, what do you want this section to be titled? We recommend "Projects" or "Volunteer work," depending on what you're putting here.</p>
+					<input type="text" id="projsectiontitle" placeholder="Projects">
+					<p>Only include up to 3 of your most prominent projects or volunteer experiences. In order to make each one show up, be sure to fill out the  <i>title</i> field.</p>
+
+					<div class="switch_dots">
+						Edit Project:
+						<span class="dot activedot" id="proj1btn" onclick="javascript:loadProj1();">1</span>
+						<span class="dot" id="proj2btn" onclick="javascript:loadProj2();">2</span>
+						<span class="dot" id="proj3btn" onclick="javascript:loadProj3();">3</span>
+					</div>
+
+					<div id="proj1">
+						<label>Title</label>
+						<input type="text" id="proj1title" placeholder="Cockpit for Chrome">
+
+						<label>Description</label>
+						<textarea id="proj1desc" placeholder="I spent a week creating a beautiful new tab page, but I abandoned the idea after running into security issues loading external scripts on Chrome. You can see it at mitchs.co/cockpit"></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div id="proj2">
+						<label>Title</label>
+						<input type="text" id="proj2title" placeholder="Habitat for Humanity">
+
+						<label>Description</label>
+						<textarea id="proj2desc" placeholder="I volunteered to work with Habitat for Humanity to build a house in Madison, Wisconsin over the summer in 2014."></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div id="proj3">
+						<label>Title</label>
+						<input type="text" id="proj3title" placeholder="iNeedAResume">
+
+						<label>Description</label>
+						<textarea id="proj3desc" placeholder="I created a resume generator website to make my annoying roommate shut up about how sick he was of making resumes."></textarea>
+						<p class="hint"><b>PSSSTT:</b> An asterisk ( * ) will automatically turn into a bullet point! HTML markup is also supported, but don't use line breaks</p>
+					</div>
+
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showEducation();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+				</div>
+
+
+
+
+
+				<!--
+					x1 = degree
+					x2 = school 
+					x3 = location
+					x4 = grad year
+					x5 = gpa
+				-->
+				<div class="formwrap" id="section_education">
+					<h6><i class="ion-ios-book"></i>&nbsp; Education</h6>
+					<p>If you want to exclude something (I'm looking at you, people with low GPAs), just leave a field blank.</p>
+
+					<div class="switch_dots">
+						Edit Education:
+						<span class="dot activedot" id="edu1btn" onclick="javascript:loadEdu1();">1</span>
+						<span class="dot" id="edu2btn" onclick="javascript:loadEdu2();">2</span>
+						<span class="dot" id="edu3btn" onclick="javascript:loadEdu3();">3</span>
+					</div>
+
+					<div id="edu1">
+						<label>Degree</label>
+						<input type="text" id="edu11" placeholder="Bachelor of Science in Computer Science">
+
+						<label>School</label>
+						<input type="text" id="edu12" placeholder="University of Wisconsin - Madison">
+
+						<label>Location</label>
+						<input type="text" id="edu13" placeholder="Madison, WI">
+
+						<label>Graduation Year</label>
+						<input type="text" id="edu14" placeholder="2015">
+
+						<label>Grade Point Average</label>
+						<input type="text" id="edu15" placeholder="1.24">
+					</div>
+
+					<div id="edu2">
+						<label>Degree</label>
+						<input type="text" id="edu21" placeholder="Bachelor of Arts in Philosophy">
+
+						<label>School</label>
+						<input type="text" id="edu22" placeholder="University of Phoenix">
+
+						<label>Location</label>
+						<input type="text" id="edu23" placeholder="Mother's Basement">
+
+						<label>Graduation Year</label>
+						<input type="text" id="edu24" placeholder="2017">
+
+						<label>Grade Point Average</label>
+						<input type="text" id="edu25" placeholder="2.24">
+					</div>
+
+					<div id="edu3">
+						<label>Degree</label>
+						<input type="text" id="edu31" placeholder="Doctorate of Philosophy in Dance">
+
+						<label>School</label>
+						<input type="text" id="edu32" placeholder="Carnegie Mellon">
+
+						<label>Location</label>
+						<input type="text" id="edu33" placeholder="Pittsburgh, PA">
+
+						<label>Graduation Year</label>
+						<input type="text" id="edu34" placeholder="2020">
+
+						<label>Grade Point Average</label>
+						<input type="text" id="edu35" placeholder="3.25">
+					</div>
+
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showSkills();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+				</div>
+
+
+				<div class="formwrap" id="section_skills">
+					<h6><i class="ion-ios-star"></i>&nbsp; Skills</h6>
+
+					<p>If you can do anything useful list that here. If you have nothing to list, try listing your favorite bands. Just kidding, don't do that.<br/><br/>Seperate your skills with commas.</p>
+
+					<input type="text" id="skills" placeholder="Teamwork, Excel, MS Paint, Spotify">
+
+					<div class="btn_standard btn-blue padfix" onclick="javascript:showSettings(); generatePDF(); checkEmpty();">Next Section <i class="ion-ios-arrow-forward"></i></div>
+
+				</div>
+
+
+				<div style="width:90%; margin:0 auto; max-width:500px; height:40px; margin-top:80px; margin-bottom:20px;" id="hidethismoney">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- ineedaresume app -->
+					<ins class="adsbygoogle"
+					     style="display:block"
+					     data-ad-client="ca-pub-4815459630320404"
+					     data-ad-slot="9865181126"
+					     data-ad-format="auto"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+
+
+			</section>
+
+		<div id="smallpdfwrap">
+			<!-- Actual PDF -->
+			<div id="print_page" class="shrunken default_lato">
+
+				<div id="settings_instructions">
+					You're almost done!
+					<br/><br/>
+					adjust the settings below<br/>and click the cloud when you're ready to save your resume.
+					<div id="finish_button_wrapper">	
+						<!-- <div id="edit_resume">
+							<i class="ion-gear-a"></i>
+						</div> -->
+						<div id="save_resume" onclick="javascript:printPage();">
+							<i class="ion-android-download"></i>
+						</div>		
+					</div>		
+
+					<select class="selectbox" id="selectfont" onchange="getFont(this);">
+						<option>Font Family</option>
+						<option value="'Lato', sans-serif;">Lato</option>
+						<option value="'Roboto', sans-serif">Roboto</option>
+						<option value="'Oswald', sans-serif">Oswald</option>
+						<option value="'Montserrat', sans-serif">Montserrat</option>
+						<option value="'Merriweather', sans-serif">Merriweather</option>
+						<option value="'Comfortaa', sans-serif">Comfortaa</option>
+						<option value="'Poiret One', sans-serif">Poiret One</option>
+					</select>
+
+					<select class="selectbox" id="selectfont" onchange="getAlignment(this);">
+						<option>Text Alignment</option>
+						<option value="left">Left</option>
+						<option value="center">Center</option>
+						<option value="right">Right</option>
+					</select>
+
+					<select class="selectbox" id="selectspacing" onchange="getSpacing(this);">
+						<option>Line Spacing</option>
+						<option value="1em">1</option>
+						<option value="1.15em">1.15</option>
+						<option value="1.25em">1.25</option>
+						<option value="1.35em">1.35</option>
+						<option value="1.5em">1.5</option>
+						<option value="1.75em">1.75</option>
+						<option value="2em">2</option>
+						<option value="2.25em">2.25</option>
+						<option value="2.5em">2.5</option>
+						<option value="2.75em">2.75</option>
+					</select>
+					<br/>
+					<select class="selectbox" id="showhr" onchange="getHR(this);">
+						<option value="yes">Show Spacer Lines</option>
+						<option value="no">Hide Spacer Lines</option>
+					</select>
+
+
+
+				</div>
+
+				<div id="measure"></div>
+
+				<div id="namefill"></div>
+
+				<!-- Contact Info -->
+				<div id="pdf_contact">
+					<span id="emailwrap"><i class="ion-ios-email-outline" id="email_icon"></i> <span id="emailfill"></span></span>
+					<span id="phonewrap"><i class="ion-ios-telephone-outline" id="phone_icon"></i> <span id="phonefill"></span></span>
+					<span id="locationwrap"><i class="ion-ios-location-outline" id="loc_icon"></i> <span id="locationfill"></span></span>
+
+					<span id="linkfill"></span>
+				</div>
+
+				<hr class="hor" />
+
+				<!-- Statement -->
+				<div id="pdf_statement_section">
+					<h2 id="statement-titlefill"></h2>
+					<p id="statementfill" class="increaseLH"></p>
+					<hr class="hor" />
+				</div>
+
+				<!-- Experience Section -->
+				<div id="pdf_experience_section">
+					<h2>Experience</h2>
+					<!-- Job One -->
+					<div id="pdf_job1" class="pdf_job_section">
+						<span id="emp11fill"></span>
+						<span id="emp12fill"></span>
+						<span id="emp13fill"></span>
+
+						<p id="emp14fill" class="increaseLH"></p>
+						<div id="emp15fill"></div>
+						<p id="emp16fill" class="increaseLH"></p>
+					</div>
+					<!-- Job Two -->
+					<div id="pdf_job2" class="pdf_job_section">
+						<span id="emp21fill"></span>
+						<span id="emp22fill"></span>
+						<span id="emp23fill"></span>
+
+						<p id="emp24fill" class="increaseLH"></p>
+						<div id="emp25fill"></div>
+						<p id="emp26fill" class="increaseLH"></p>
+					</div>
+					<!-- Job Three -->
+					<div id="pdf_job3" class="pdf_job_section">
+						<span id="emp31fill"></span>
+						<span id="emp32fill"></span>
+						<span id="emp33fill"></span>
+
+						<p id="emp34fill" class="increaseLH"></p>
+						<div id="emp35fill"></div>
+						<p id="emp36fill" class="increaseLH"></p>
+					</div>
+					<hr class="hor" />
+				</div>
+
+
+				<!-- Projects Section -->
+				<div id="pdf_projects_section">
+					<h2 id="projsectiontitlefill"></h2>
+					<!-- Job One -->
+					<div id="pdf_proj_1" class="pdf_job_section">
+						<span id="proj1titlefill"></span>
+						<p id="proj1descfill" class="increaseLH"></p>
+					</div>
+					<!-- Job Two -->
+					<div id="pdf_proj_2" class="pdf_job_section">
+						<span id="proj2titlefill"></span>
+						<p id="proj2descfill" class="increaseLH"></p>
+					</div>
+					<!-- Job Three -->
+					<div id="pdf_proj_3" class="pdf_job_section">
+						<span id="proj3titlefill"></span>
+						<p id="proj3descfill" class="increaseLH"></p>
+					</div>
+					<hr class="hor" />
+				</div>
+
+
+
+				<!-- Education Section -->
+				<div id="pdf_education_section">
+					<h2>Education</h2>
+
+					<!-- School One -->
+					<div id="pdf_edu_1">
+						<span id="edu11fill"></span>
+						<span id="edu12fill"></span> 
+						<span id="edu13fill"></span> 
+						<span id="edu14fill"></span>
+						<span id="edu15fill"></span>
+					</div>
+					<!-- School Two -->
+					<div id="pdf_edu_2">
+						<span id="edu21fill"></span>
+						<span id="edu22fill"></span> 
+						<span id="edu23fill"></span> 
+						<span id="edu24fill"></span>
+						<span id="edu25fill"></span>
+					</div>
+					<!-- School Three -->
+					<div id="pdf_edu_3">
+						<span id="edu31fill"></span>
+						<span id="edu32fill"></span> 
+						<span id="edu33fill"></span> 
+						<span id="edu34fill"></span>
+						<span id="edu35fill"></span>
+					</div>
+					<hr class="hor" />
+				</div>
+
+				<!-- Skills section -->
+				<div id="pdf_skills_section">
+					<h2>Skills</h2>
+					<span id="skillsfill"></span>
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="../src/jquery-1.8.3.min.js"></script>
+		<script src="../src/app.js"></script>
+		<script src="../src/technical.js"></script>
+		<script src="../src/navigation.js"></script>
+        <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-60397420-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  ga('create', 'UA-60397420-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+	</body>
+</html>

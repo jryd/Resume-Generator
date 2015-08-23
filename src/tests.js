@@ -1,48 +1,70 @@
 function loadTestData(){
 
-	$("#pdf_job2, #pdf_job3").hide();
+	$( document ).ready(function() {
+    
+    $("#name").val("Mitch Samuels");
+    $("#email").val("mitch@mitchs.co");
+    $("#phone").val("5073305897");
+    $("#location").val("Madison WI");
+    $("#link").val("mitchs.co");
+    
+
+    $("#statement-title").val("Personal Statement");
+    $("#statement").val("It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!) It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!) It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!) It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!)");
+
+    $("#emp11, #emp21, #emp31").val("Export Abroad");
+    $("#emp12, #emp22, #emp32").val("Madison WI");
+    $("#emp13, #emp23, #emp33").val("July 2014 - Present");
+    $("#emp14, #emp24, #emp34").val("Export abroad is a big data company who helps other large companies and corporations identify target markets and expand across the globe.");
+    $("#emp15, #emp25, #emp35").val("Front End Engineer");
+    $("#emp16, #emp26, #emp36").val("It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!) ");
+
+    $("#projsectiontitle").val("Volunteer Experience");
+    $("#proj1title, #proj2title, #proj3title").val("Volunteering at animal shelter");
+    $("#proj1desc, #proj2desc, #proj3desc").val("It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!) ");
+
+    $("#edu11, #edu21, #edu31").val("Bachelor of Arts in Computer Science");
+    $("#edu12, #edu22, #edu32").val("University of Wisconsin - Madison");
+    $("#edu13, #edu23, #edu33").val("Madison WI");
+    $("#edu14, #edu24, #edu34").val("2019");
+    $("#edu15, #edu25, #edu35").val("2.85");
+
+    $("#skills").val("html, css, javascript, whatever, other, another, cool, dogs, cats");
 
 
-	//PDF Testing, filler info
-	$("#pdf_name").html("Mitch A. Samuels");
-	$("#pdf_email").html("Mitch@mitchs.co");
-	$("#pdf_phone").html("507.330.5897");
-	$("#pdf_location").html("Madison, WI");
-	$("#pdf_link").html("<a href='#'>http://linkedin.com/in/mitchas</a>");
-	$("#pdf_statement_title").html("Professional Summary");
-	$("#pdf_statement").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon. Picanha meatball sausage, spare ribs cow ham hock short loin. Ball tip ribeye short ribs fatback chicken ground round pork chop short loin beef ribs kevin landjaeger ham tri-tip. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly.");
-	
-	$("#job_1_employer").html("Google, Inc.");
-	$("#job_1_loc").html("Mountain View, California");
-	$("#job_1_time").html("July 2012 - May 2014");
-	$("#pdf_job1_emp_desc").html("Google is an American multinational corporation specializing in Internet-related services and products. These include online advertising technologies, search, cloud computing, and software.");
-	$("#job1_title").html("Front End Developer");
-	$("#pdf_job1_job_desc").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip <a href='#'>steak fatback</a> picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.<br/><b>Responsibilities Included</b><ul><li>Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle</li><li>wine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket.</li><li>Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump</li></ul>Abiltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.");
-	
-	// $("#job_2_employer").html("Google, Inc.");
-	// $("#job_2_loc").html("Mountain View, California");
-	// $("#job_2_time").html("July 2012 - May 2014");
-	// $("#pdf_job2_emp_desc").html("Google is an American multinational corporation specializing in Internet-related services and products. These include online advertising technologies, search, cloud computing, and software.");
-	// $("#job2_title").html("Front End Developer");
-	// $("#pdf_job2_job_desc").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip <a href='#'>steak fatback</a> picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.<br/><b>Responsibilities Included</b><ul><li>Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle</li><li>wine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket.</li><li>Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump</li></ul>Abiltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.");
-	
 
 
-	$("#pdf_degree").html("Bachelor of Science in Computer Science");
-	$("#pdf_school").html("University of Wisconsin-Madison");
-	$("#pdf_school_loc").html("Madison, WI");
-	$("#pdf_graduation").html("2017");
-	$("#pdf_degree2").html("Bachelor of Arts in Communications");
-	$("#pdf_school2").html("Berekely University");
-	$("#pdf_school_loc2").html("Berkely, CA");
-	$("#pdf_graduation2").html("2012");
-	$("#pdf_degree3").html("Doctor of Philosophy in Organizational Psychology");
-	$("#pdf_school3").html("University of Minnesota-Twin Cities");
-	$("#pdf_school_loc3").html("Minneapolis, MN");
-	$("#pdf_graduation3").html("2014");
 
-	user_skills="HTML, CSS, Javascript, PHP, Django, Python, Bootstrap, Wordpress, Angular, Ionic, Java, Photoshop, Indesign, Dketch, Evernote, Git/Github"
-	user_skills_split = user_skills.replace(/,/g, '<span class="skillbullet"> \u2219 </span>');
-	$("#pdf_skills").html(user_skills_split);
+
+    // Statement
+    $("#pdf_statement_title").html($("#statement-title").val());
+    $("#pdf_statement").html($("#statement").val());
+
+    // Work1
+    $("#emp11fill").html($("#emp11").val());
+    $("#emp12fill").html($("#emp12").val());
+    $("#emp13fill").html($("#emp13").val());
+    $("#emp14fill").html($("#emp14").val());
+    $("#emp15fill").html($("#emp15").val());
+    $("#emp16fill").html($("#emp16").val());
+
+    // Work2
+    $("#emp21fill").html($("#emp21").val());
+    $("#emp22fill").html($("#emp22").val());
+    $("#emp23fill").html($("#emp23").val());
+    $("#emp24fill").html($("#emp24").val());
+    $("#emp25fill").html($("#emp25").val());
+    $("#emp26fill").html($("#emp26").val());
+
+    // Work3
+    $("#emp31fill").html($("#emp31").val());
+    $("#emp32fill").html($("#emp32").val());
+    $("#emp33fill").html($("#emp33").val());
+    $("#emp34fill").html($("#emp34").val());
+    $("#emp35fill").html($("#emp35").val());
+    $("#emp36fill").html($("#emp36").val());
+
+    
+});
 
 }

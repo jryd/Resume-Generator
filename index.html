@@ -1,28 +1,39 @@
 <html>
 	<head>
-		<title>iNeedAResume | Create a free resume</title>
+		<title>ineedaresume | LEARN</title>
 
 		<meta charset="utf-8">
-		<meta name="theme-color" content="#f5414c">
+		<meta name="theme-color" content="#000">
 		<meta name="description" content="Ineedaresu.me is a super fast, super simple, and completely free way to build a beautiful resume in minutes. Fill out your details, choose your theme, and either print your resume directly or save it to your computer!">
 		<meta name="author" content="Mitch Samuels">
 		<meta name="keywords" content="Simple, Quick, resume, CV, contact, job, work, career, fair, builder, minimal, Mitch Samuels, resume, generator, creator, maker, resumay, job, jobs, career, javascript, pdf, word, print, creating, make, generate, apply, applicant">
 
-		<link rel="shortcut icon" type="image/ico" href="src/rainbow.ico" />
+		<!-- Responsive viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/ico" href="src/favicon.ico" />
+
+		<!-- Thumbnail for sharing -->
 		<meta name="thumbnail" content="http://ineedaresu.me/src/logosmall.png" />
 
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/animate.css">
-		<link rel="stylesheet" type="text/css" href="css/themes/theme_default.css" id="css_theme_1" class="xcss">
-		<link rel="stylesheet" type="text/css" href="css/themes/theme_default_left.css" id="css_theme_2" class="xcss" disabled>
-		<link rel="stylesheet" type="text/css" href="css/themes/theme2.css" id="css_theme_3" class="xcss" disabled>
-		<link rel="stylesheet" type="text/css" href="css/print.css">
+		<!-- Universal stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/universal.css">
+		<!-- Home specific stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+		<!-- Media queries -->
+		<link rel="stylesheet" type="text/css" href="css/media.css">
+
+
+
+
 
 		<!-- Google Webfont, Lato, 100,300,400,700,900 -->
 		<link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Merriweather:400,300,700" rel="stylesheet" type="text/css">
+
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 
 		<!-- Ionicons CDN -->
@@ -43,446 +54,136 @@
 	</head>
 	<body>
 
+		<!--
+			========================
+				  Home nav
+			========================
+									-->
 
-
-
-<!-- <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mitch%40mitchs%2eco&lc=US&item_name=Donation%20to%20Resumaker&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank"></a> -->
-
-		<div id="tips">
-			Click <b>"+More Settings"</b> then uncheck "Headers & Footers" &nbsp; | &nbsp; Change the <b>Destination</b> to save it as a PDF
-		</div>
-
-
+			<div id="home_pro" class="greygradient">
+				<a href="/ineedone/">Want your own custom document generator? Click here!</a>
+				<div id="close_home_pro">
+					<i class="ion-ios-close-empty"></i>
+				</div>
+			</div>
+			<div id="home_nav" class="bluegradient">
+				<img src="src/logo.png">
+				<h1>ineedaresu.me</h1>
+			</div>
 		
-
-
-		<button id="preview_btn"><i class="ion-ios-eye"></i> Preview Resume</button>
-
-
-		<nav>
-			<h1><i class="ion-document"></i><br/><b>i</b>need<b>a</b>resu.me</h1>
-			<ul>
-				<li id="tab_intro" class="activated"><i class="ion-ios-information"></i> Introduction</li>
-				<li id="tab_1"><i class="ion-ios-body"></i> Personal Information</li>
-				<li id="tab_2"><i class="ion-ios-chatbubble"></i> Statement</li>
-				<li id="tab_3"><i class="ion-ios-briefcase"></i> Work Experience</li>
-				<!-- <li id="tab_35"><i class="ion-hammer"></i> Projects</li> -->
-				<li id="tab_4"><i class="ion-ios-book"></i> Education</li>
-				<li id="tab_5"><i class="ion-ios-list"></i> Skills</li>
-				<li id="tab_6"><i class="ion-checkmark-circled"></i> Settings / Finish Up</li>
-			</ul>
-		</nav>
-
-
-
-		<article>
-<!-- 
-			<div id="promo" class="animated pulse" onclick="window.open('https://docs.google.com/document/d/1Q9bszmPLLTk4xDBXuboUoAQNQg-W15y-h0gRAxKKNzE/edit?usp=sharing')">
-				Want more languages? Click here to help translate it!</div>
-			</div> -->
-
-			<progress value="0" max="100" id="progressbar"></progress>	
-
-			<div id="branding" onclick="_gaq.push(['_trackEvent', 'link', 'click', 'Go to Mitchs.co']);">developed by mitch samuels</div>
-
-
-			<section id="intro_box" class="animated pulse" style="margin-bottom:20px;">
-				<h4><i class="ion-document"></i><br/><b>i</b>need<b>a</b>resu.me</h4>
-				<h5>generate a R&eacute;sum&eacute; in seconds<br/><br/>See an example <a href="src/example.pdf" target="_blank">here</a></h5>
-
-				<ul>
-					<li>
-						<h5>Completely Free & Super duper simple</h5>
-						<h6>Easy-to-follow instructions every step of the way. Follow your progress towards completion with a bar at the top of the screen. Best of all, we won't charge you, ever.</h6>
-					</li>
-					<li>
-						<h5>Compatible With Chrome</h5>
-						<h6>Be sure you're using Google Chrome. It might work in Firefox. It probably wont work on mobile, and definitely wont on Internet Explorer.</h6>
-					</li>
-					<li>
-						<h5>Procrastination Station</h5>
-						<h6>Did you find something more fun to do when you were making your resume? Go ahead, we'll automatically save the text that you leave in the fields so you can come back later.</h6>
-					</li>
-					<li>
-						<h5>Simple yet Flexible</h5>
-						<h6>See something you don't want included on your resume? Just leave that field blank.</h6>
-					</li>
-					<li>
-						<h5>We aren't thieves</h5>
-						<h6>Nothing you enter on this site is ever sent to us or saved on any servers, so nobody sees it except you. The resume is generated without us seeing anything.</h6>
-					</li>
-					<li>
-						<h5>Because making pretty resumes isn't one of your skills</h5>
-						<h6>This tool instantly generates a beautiful resume that you can either print directly or save as a PDF. No knowledge of design required!</h6>
-					</li>
-					<li>
-						<h5>We're not done yet!</h5>
-						<h6>I'm a single full-time student working on this when I can. I love hearing what people have to say, so please  shoot me an email @ <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a> with any suggestions or bugs.</h6>
-					</li>
-				</ul>
-
-
-				<img src="src/looksharp.png" id="sponsored_img">
-				<!-- <img src="src/looksharp.png" id="sponsored_img" onclick="window.open('https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete')"> -->
-				<button id="intro_reset">Start Over? <i class="ion-refresh"></i></button>
-				<div id="confirm_reset">Are you sure? <a href="#" id="clear_data_yes">Yes</a> / <a href="#" id="clear_data_no">No</a></div>
-				<button id="intro_begin">Begin <i class="ion-arrow-right-c"></i></button>
-			</section>
-
-
-
-			
-
-
-
-			<section id="the_personal" class="animated pulse">
-				<h2>It's going to get a little <b>personal</b>...</h2>
-				<label>What is your name, human?</label><input type="text" id="personal_name_input" placeholder="Sean Combs">
-				<label>Please refrain from using your 6th grade email.</label><input type="text" id="personal_email_input" placeholder="horselover14@aol.com">
-				<label>I know we just met, but can I get your number?</label><input type="text" id="personal_phone_input" placeholder="760-555-4824">
-				<label>Not to be creepy, but where are you located?</label><input type="text" id="personal_location_input" placeholder="Madison, WI">
-				<label>Do you have an online portfolio or linkedin?</label><input type="text" id="personal_link_input" placeholder="http://linkedin.com/in/mitchas">
-
-				<img src="src/looksharp.png" class="sponsored_img_small">
-				<button class="next_button" id="personal_continue">Continue To Statement <i class="ion-arrow-right-c"></i></button>
-			</section>
-
-
-			<section id="the_statement" class="animated pulse">
-				<h2>Would you like to provide a personal <b>statement</b>?<br/>I wont judge if you don't.</h2>
-				<label>Statement title & Statement:</label><input type="text" id="statement_title" placeholder="Why I want to work here:">
-				<textarea id="personal_statement_input" maxlength="1200" placeholder="I would love to work here because I heard you have the gnarliest lunch buffet..."></textarea>
-				<div id="statement_feedback">For your own good, you only have <span id="statement_remaining"></span> characters left.</div>
-
-				<img src="src/looksharp.png" class="sponsored_img_small">
-				<button class="next_button" id="statement_continue">Continue To Work <i class="ion-arrow-right-c"></i></button>
-			</section>
-
-
-			<span id="the_work" class="animated pulse">
-				<section style="margin-bottom:25px;">
-					<h2 class="selector_heading">
-						You can have up to 3 jobs<br/>
-						leave blank anything you don't need<br/><br/>
-						Edit job: <a id="select_work_1" class="select_link select_active">1</a><a id="select_work_2">2</a><a id="select_work_3">3</a>
-				</section>
-				<section id="work_one" class="animated pulse">
-					<br/>
-					<label>Enable This Job:</label><input id="enable_work_1" type="checkbox"/><br/><br/><br/>
-					<label>Employer:</label><input type="text" id="employer" placeholder="Google, Inc." disabled>
-					<label>Location:</label><input type="text" id="job_location" placeholder="Mountain View, CA" disabled>
-					<label>Time:</label><input type="text" id="job_time" placeholder="July 2014 - Present" disabled>
-					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc" placeholder="Google is the leading search engine..." disabled>
-					<hr style="opacity:0 !important;" />
-					<label>Job Title:</label><input type="text" id="title" placeholder="Front End Engineer" disabled>
-					<label>Job Description:</label><textarea id="job_desc" placeholder="Responsible for the development of Google.com, nothing serious." disabled></textarea>
-					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
-				</section>
-				<section id="work_two" class="animated pulse">
-					<br/>
-					<label>Enable This Job:</label><input id="enable_work_2" type="checkbox"/><br/><br/><br/>
-					<label>Employer:</label><input type="text" id="employer2" placeholder="Stratton Oakmont" disabled>
-					<label>Location:</label><input type="text" id="job_location2" placeholder="New York, NY" disabled>
-					<label>Time:</label><input type="text" id="job_time2" placeholder="January 1985 - February 1989" disabled>
-					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc2" placeholder="Stratton Oakmont invests your money is the best companies ever" disabled>
-					<hr style="opacity:0 !important;" />
-					<label>Job Title:</label><input type="text" id="title2" placeholder="Fraud Expert" disabled>
-					<label>Job Description:</label><textarea id="job_desc2" placeholder="Manager of investing master of fraud. I know investment fraud like the back of my hand, and I have years of experience using ratholes and Swiss bank accounts." disabled></textarea>
-					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
-				</section>
-				<section id="work_three" class="animated pulse">
-					<br/>
-					<label>Enable This Job:</label><input id="enable_work_3" type="checkbox"/><br/><br/><br/>
-					<label>Employer:</label><input type="text" id="employer3" placeholder="Central Intelligence Agency" disabled>
-					<label>Location:</label><input type="text" id="job_location3" placeholder="Langly, VA" disabled>
-					<label>Time:</label><input type="text" id="job_time3" placeholder="July 2010 - Present" disabled>
-					<label>Short(ish) Employer Description:</label><input type="text" id="employer_desc3" placeholder="Confideitial" disabled>
-					<hr style="opacity:0 !important;" />
-					<label>Job Title:</label><input type="text" id="title3" placeholder="Confidential" disabled>
-					<label>Job Description:</label><textarea id="job_desc3" placeholder="I was in charge of [redacted] and the [redacted] project which assassinated [redacted] and gave power to [redacted]" disabled></textarea>
-					<div id="desc_formatting">Hint: an asterisk ( * ) will turn into a bullet point!<br/><small>HTML Markup is also supported (don't use line breaks)</small></div>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="work_continue">Continue To Education <i class="ion-arrow-right-c"></i></button>
-				</section>
-			</span>
-
-
-
-			<span id="the_education" class="animated pulse">
-				<section style="margin-bottom:25px;">
-					<h2 class="selector_heading">
-						You can have up to 3 schools<br/>
-						leave blank anything you don't need<br/><br/>
-						Edit School: <a id="select_edu_1" class="select_link select_active">1</a><a id="select_edu_2">2</a><a id="select_edu_3">3</a>
-				</section>
-				<section id="edu_one" class="animated pulse">
-					<br/>
-					<label>Enable This School:</label><input id="enable_edu_1" type="checkbox"/><br/><br/><br/>
-					<label>Degree:</label><input type="text" id="degree" placeholder="Bachelor of Science in Computer Science" disabled>
-					<label>School:</label><input type="text" id="school" placeholder="University of Wisconsin-Madison" disabled>
-					<label>Location:</label><input type="text" id="school_location" placeholder="Madison, WI" disabled>
-					<label>Graduation Year:</label><input type="text" id="graduation" placeholder="2015" disabled>
-					<label>Grade Point Average:</label><input type="text" id="gpa" placeholder="3.24" disabled>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
-				</section>
-				<section id="edu_two" class="animated pulse">
-					<br/>
-					<label>Enable This School:</label><input id="enable_edu_2" type="checkbox" /><br/><br/><br/>
-					<label>Degree:</label><input type="text" id="degree2" placeholder="Master of Arts in Philosophy" disabled>
-					<label>School:</label><input type="text" id="school2" placeholder="University of Phoenix" disabled>
-					<label>Location:</label><input type="text" id="school_location2" placeholder="Mother's Basement" disabled>
-					<label>Graduation Year:</label><input type="text" id="graduation2" placeholder="2017" disabled>
-					<label>Grade Point Average:</label><input type="text" id="gpa2" placeholder="3.24" disabled>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
-				</section>
-				<section id="edu_three" class="animated pulse">
-					<br/>
-					<label>Enable This School:</label><input id="enable_edu_3" type="checkbox" /><br/><br/><br/>
-					<label>Degree:</label><input type="text" id="degree3" placeholder="Doctorate of Philosophy in Dance" disabled>
-					<label>School:</label><input type="text" id="school3" placeholder="Carnegie Mellon" disabled>
-					<label>Location:</label><input type="text" id="school_location3" placeholder="Pittsburgh, PA" disabled>
-					<label>Graduation Year:</label><input type="text" id="graduation3" placeholder="2020" disabled>
-					<label>Grade Point Average:</label><input type="text" id="gpa3" placeholder="3.24" disabled>
-
-					<img src="src/looksharp.png" class="sponsored_img_small">
-					<button class="next_button" id="education_continue">Continue To Skills <i class="ion-arrow-right-c"></i></button>
-				</section>
-			</span>
-
-
-
-			<section id="the_skills" class="animated pulse">
-				<h2>Can you actually <b>do</b> anything?</h2>
-
-				<label>Skills (Seperate with commas):</label><input type="text" id="skillsinput" placeholder="HTML, CSS, Javascript, Adobe Suite">
-
-				<img src="src/looksharp.png" class="sponsored_img_small">
-				<button class="next_button" id="skills_continue">Continue To Settings <i class="ion-arrow-right-c"></i></button>
-			</section>
-
-
-
-			
-
-
-			<!-- Settings -->
-			<section id="settings" class="animated pulse noselect">
-				<h2>Adjust your settings:</h2>
-				<small>After you click "Generate Resume," if something doesn't look right,<br/>just click cancel and try adjusting these settings some more.</small>
-				<ul>
-					<!-- <li id="choose_theme">
-						<h5>Choose Theme</h5>
-						<h6>This will open the preview menu</h6>
-					</li> -->
-					<li>
-						<h5>Serif font</h5>
-						<h6>Default is Sans-serif</h6>
-						<div class="check_wrap"><input type="checkbox" id="serifyes" /></div>
-					</li>
-					<!-- <li>
-						<h5>Align Resume Left</h5>
-						<h6>Default is centered</h6>
-						<div class="check_wrap"><input type="checkbox" id="left_align" /></div>
-					</li> -->
-					<li>
-						<h5>Hide Lines Between Sections</h5>
-						<h6>Shown by Default</h6>
-						<div class="check_wrap"><input type="checkbox" id="removehr" /></div>
-					</li>
-					<li><small>Adjust these to perfect the layout:</small></li>
-					<li>
-						<h5>Paragraph Line Height</h5>
-						<h6>Spacing between lines in paragraphs</h6>
-						<div class="check_wrap">
-							<i class="ion-android-remove-circle" id="decrease_line_height"></i>
-							<span id="line_height_counter">0</span>
-							<i class="ion-android-add-circle" id="increase_line_height"></i>
-						</div>
-					</li>
-				</ul>
-
-				<img src="src/looksharp.png" class="sponsored_img_small">
-				<button id="generate" onclick="_gaq.push(['_trackEvent', 'link', 'click', 'Generate Resume']);">Save my resume!</button>
-
-			</section>
-
-
-			<section id="thanks" class="animated pulse">
-				<h2>Good luck with your job search!</h2>
-				<p id="thanks_text">
-					<b>If something doesn't look right, click the sidebar to go back and edit!</b>
-					<!-- <br/><br/><br/>
-					Add your new resume to your Looksharp profile. Get discovered by the top employers in your industry. <a href="https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete" target="_blank">Get started</a> -->
-					<br/><br/><br/>
-					<b>If you liked this tool, share it with your friends!<br/>Follow <a href="http://twitter.com/sleumasm" target="_blank">@sleumasm</a> for updates and new websites!</b>
-					<br/><br/>
-					If you find a bug or have other feedback, shoot me an email at <a href="mailto:mitch@mitchs.co" target="_blank">mitch@mitchs.co</a>
-					<br/><br/>
-					<b>Need to make an invoice? Check out <a href="http://ineedinvoic.es" target="_blank">ineedinvoic.es</a>!</b>
-				</p>
-			</section>
-
-
-
-			<!-- Advertisement -->
-			<section class="animated pulse" style="margin-bottom:75px; padding:0px;">
-				<small id="ad_about">This site is free thanks to <!-- <a href="https://www.internmatch.com/profile/new?utm_source=ineedaresume&utm_medium=partner&utm_campaign=complete" target="_blank">Looksharp</a> & --> this tiny ad, please don't use an adblocker :)</small>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- iNeedAResume Bottom -->
-				<ins class="adsbygoogle"
-				     style="display:block"
-				     data-ad-client="ca-pub-4815459630320404"
-				     data-ad-slot="9735597921"
-				     data-ad-format="auto"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-			</section>
-
-
-
-
-
-
-		</article>
-
-
-
-
-		<!-- PDF Lightbox -->
-		<div id="pdf_lightbox" class="noselect">
-
-			<!-- Lightbox ad -->
-			<div id="lightbox_ad">
-				 &nbsp;Advertisement:&nbsp; 
-			</div>
-			<!-- <h6>Use the arrows to switch themes.<br/>Theme <span id="current_theme">X</span> of <span id="available_themes">XX</span></h6> -->
-			<h6 style="position:relative; top:300px;">Come on, fill in some more fields,<br/>To see what it'll actually look like!</h6>
-			<div id="hide_preview" class="noselect"><i class="ion-ios-close-empty"></i></div>
-			<!-- <button id="prev_theme" class="noselect"><i class="ion-ios-arrow-back"></i></button> -->
-			<!-- <button id="next_theme" class="noselect"><i class="ion-ios-arrow-forward"></i></button> -->
-		</div>
-
-
-
-		<!-- Actual PDF -->
-		<div id="print_page" class="sans_resume">
-
-			<div id="measure"></div>
-
-			<div id="pdf_name" class="fill"></div>
-
-			<!-- Contact Info -->
-			<div id="pdf_contact" class="fill">
-				<i class="ion-ios-email-outline" id="email_icon"></i> <span id="pdf_email" class="fill"></span> 
-				<i class="ion-ios-telephone-outline" id="phone_icon"></i> <span id="pdf_phone" class="fill"></span> 
-				<i class="ion-ios-location-outline" id="loc_icon"></i> <span id="pdf_location" class="fill"></span>
-
-				<span id="pdf_link" class="fill"></span>
+		<!--
+			========================
+				  INTRODUCTION
+			========================
+									-->
+			<div id="getting_started">
+				<h1 id="tagline">job hunting sucks. waking up early sucks. dressing up sucks. interviews suck. microsoft word sucks. times new roman sucks.</h1>
+				<h2 id="tagline_bold">making a resume sucks</h2>
+				<h4 id="tagline_small">we can make it suck less <small>(for free)</small></h4>
+				<a href="#ayeineedmoreinfo" class="btn_standard btn-blue">Learn More</a>
+				<a href="src/example.pdf" target="_blank" class="btn_standard btn-yellow">view example</a>
+				<a class="btn_standard btn-green" href="/app/">Create your own</a>
 			</div>
 
-			<hr />
+			<div id="ayeineedmoreinfo">
+				<div class="fivebox">
+					<i class="ion-ios-flame-outline"></i>
+				</div>
+				<div class="fivebox">
+					<i class="ion-ios-eye-outline"></i>
+				</div>
+				<div class="fivebox">
+					<i class="ion-ios-printer-outline"></i>
+				</div>
+				<div class="fivebox">
+					<i class="ion-ios-paperplane-outline"></i>
+				</div>
+				<div class="fivebox">
+					<i class="ion-ios-bolt-outline"></i>
+				</div>
 
-			<!-- Statement -->
-			<div id="pdf_statement_section" class="fill">
-				<h2 id="pdf_statement_title" class="fill"></h2>
-				<p id="pdf_statement" class="fill"></p>
-				<hr/>
+				<h3>We'll make it look cool</h3>
+				<p>We make things look good. That's why we put those icons up there. They don't really mean anything, but they look cool. Your resume / CV will look cool too. And depending on what you put in it, it will maybe even be useful.</p>
+				<br/>
+				<h3>faster and easier than word</h2>
+				<p>Microsoft Word is good for some things. Laying out resumes is not one of those. we take care of that for you. All you have to do is fill in your information and adjust the settings to your liking.</p>
+				<br/>
+				<h3>it's up to you what goes on it</h2>
+				<p>We made it super flexible. We give you a ton of options, but if you want to leave something off, just leave the field blank. We'll take care of the rest. There are a few required fields. They are marked with an asterisk ( * )</p>
+				<br/>
+				<h3>free and private</h3>
+				<p>It's completely free so we must collect and sell your information, right? Nah. Nothing you enter on this site is stored or sent over servers. ever. but we do use HTML5's localstorage to save what you entered on your computer so you can come back end edit it later (so don't clear your cache!). there are also ads. dont mind those.</p>
+				<br/><br/>
+				<h3>compatible with modern equipment</h3>
+				<p>we built this to work. it works great with chrome or firefox on both windows and mac osx. it also works on chrome for android on android 4.0+. we aren't sure why anyone would ever want to make a resume on a smartphone, but just know that you can.</p>
+				<br/><br/>
+				<h3>spread the love</h3>
+				<p><a herf="http://www.producthunt.com/posts/i-need-a-resume" target="_blank">product hunt loved us</a>. your friends will love us too. please consider sharing this on twitter, facebook, linkedin, or at your family reunion.</p>
+				<br/><br/>
+				
+				<center>
+					<a class="btn_standard btn-green" href="/app/">Create your own</a>
+				</center>
+
+				<div id="as_seen_on">
+				<h2>As Seen On</h2>
+				<a href="http://www.producthunt.com/tech/i-need-a-resume" target="_blank"><img src="src/promo/producthunt.png"></a>
+				<a href="http://ktla.com/2015/03/17/quick-tip-fast-resume-builder/" target="_blank"><img src="src/promo/ktla.png"></a>
+				<a href="https://www.themuse.com/advice/this-free-tool-will-transform-your-uglyduckling-resume-into-a-swan" target="_blank"><img src="src/promo/muse.png"></a>
+				<a href="http://netted.net/2015/04/15/ineedaresume/" target="_blank"><img src="src/promo/netted.png"></a>
+				<br/>
+				<a href="http://lifehacker.com/this-tool-helps-make-your-resume-visually-appealing-1709672920" target="_blank"><img src="src/promo/lifehacker.png"></a>
+				<a href="http://www.newsweek.com/career/free-tool-will-transform-your-ugly-duckling-resume-swan" target="_blank"><img src="src/promo/newsweek.png"></a>
 			</div>
 
-			<!-- Experience Section -->
-			<div id="pdf_experience_section" class="fill">
-				<h2>Experience</h2>
-				<!-- Job One -->
-				<div id="pdf_job1" class="pdf_job_section fill">
-					<span id="job_1_employer" class="fill"></span>
-					<span id="job_1_loc" class="fill"></span>
-					<span id="job_1_time" class="fill"></span>
-
-					<p id="pdf_job1_emp_desc" class="fill"></p>
-					<div id="job1_title" class="fill"></div>
-					<p id="pdf_job1_job_desc" class="fill"></p>
+				<br/><br/>
+				<div id="aboutme">
+					<!-- <div id="mitch"></div> -->
+					<img src="src/madeinmadisonlg.png" id="madeinmadison">
+					<h1>Made by Mitch Samuels<br/>in madison wi</h1>
+					<h4>
+						<a href="http://mitchs.co" target="_blank">Mitchs.co</a>
+					</h4>
+					<h4>
+						<a href="http://facebook.com/mitchsamuels" target="_blank"><i class="ion-social-facebook"></i></a>
+						<a href="http://twitter.com/sleumasm" target="_blank"><i class="ion-social-twitter-outline"></i></a>
+						<a href="http://instagram.com/mitchas" target="_blank"><i class="ion-social-instagram-outline"></i></a>
+						<a href="http://github.com/mitchas" target="_blank"><i class="ion-social-github-outline"></i></a>
+						<a href="https://www.linkedin.com/in/mitchas" target="_blank"><i class="ion-social-linkedin"></i></a>
+						<a target="_blank" onclick="javascript:snapchat();"><i class="ion-social-snapchat-outline"></i></a>
+					</h4>		
+					<br/>
+					<div style="max-width:600px; width:100%; text-align:center; height:auto; margin:0 auto;">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- iNeedAResume Bottom -->
+						<ins class="adsbygoogle"
+						     style="display:block"
+						     data-ad-client="ca-pub-4815459630320404"
+						     data-ad-slot="9735597921"
+						     data-ad-format="auto"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+					<br/>
 				</div>
-				<!-- Job Two -->
-				<div id="pdf_job2" class="pdf_job_section fill">
-					<span id="job_2_employer" class="fill"></span>
-					<span id="job_2_loc" class="fill"></span>
-					<span id="job_2_time" class="fill"></span>
-
-					<p id="pdf_job2_emp_desc" class="fill"></p>
-					<div id="job2_title" class="fill"></div>
-					<p id="pdf_job2_job_desc" class="fill"></p>
-				</div>
-				<!-- Job Three -->
-				<div id="pdf_job3" class="pdf_job_section fill">
-					<span id="job_3_employer" class="fill"></span>
-					<span id="job_3_loc" class="fill"></span>
-					<span id="job_3_time" class="fill"></span>
-
-					<p id="pdf_job3_emp_desc" class="fill"></p>
-					<div id="job3_title" class="fill"></div>
-					<p id="pdf_job3_job_desc" class="fill"></p>
-				</div>
-				<hr />
-			</div>
-
-			<!-- Education Section -->
-			<div id="pdf_education_section" class="fill">
-				<h2>Education</h2>
-
-				<!-- School One -->
-				<div id="pdf_edu_1" class="pdf_education_section fill">
-					<span id="pdf_degree" class="fill"></span>
-					<span id="pdf_school" class="fill"></span> 
-					<span id="pdf_school_loc" class="fill"></span> 
-					<span id="pdf_graduation" class="fill"></span>
-					<span id="pdf_gpa" class="fill"></span>
-				</div>
-				<!-- School Two -->
-				<div id="pdf_edu_2" class="pdf_education_section fill">
-					<span id="pdf_degree2" class="fill"></span>
-					<span id="pdf_school2" class="fill"></span> 
-					<span id="pdf_school_loc2" class="fill"></span> 
-					<span id="pdf_graduation2" class="fill"></span>
-					<span id="pdf_gpa2" class="fill"></span>
-				</div>
-				<!-- School Three -->
-				<div id="pdf_edu_3" class="pdf_education_section fill">
-					<span id="pdf_degree3" class="fill"></span>
-					<span id="pdf_school3" class="fill"></span> 
-					<span id="pdf_school_loc3" class="fill"></span> 
-					<span id="pdf_graduation3" class="fill"></span>
-					<span id="pdf_gpa3" class="fill"></span>
-				</div>
-				<hr />
-			</div>
-
-			<!-- Skills section -->
-			<div id="pdf_skills_section" class="fill">
-				<h2>Skills</h2>
-				<span id="pdf_skills" class="fill"></span>
+				<!-- Bottom Bar -->
 			</div>
 
 
 
-		</div>
+	
+
+
+
 
 		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script src="src/jquery-1.8.3.min.js"></script>
+		<script src="src/technical.js"></script>
+		<script src="src/navigation.js"></script>
+		<script src="src/generation.js"></script>
 		<script src="src/doubles.js"></script>
-		<script src="src/main.js"></script>
-		<script src="src/tests.js"></script>
+		<script src="src/home.js"></script>
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

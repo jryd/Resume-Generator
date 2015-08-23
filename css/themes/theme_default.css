@@ -4,15 +4,9 @@
 	==============================================
 	==============================================	*/
 
-/*Default, Sans font*/
-.sans_resume{
-	font-family: 'Lato', sans-serif;
-}
-/*For when they select Serif font*/
-.serif_resume{
-	font-family: 'Lora', serif;
-}
+/*font classes*/
 #print_page{
+	display: none;
 	padding: 0; margin: 0 auto;
 	width:7.23in;
 	mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;
@@ -22,20 +16,23 @@
 	font-weight: 300;
 	overflow: visible !important;
 
-	/*Disable these in print query*/
-	z-index: 0;
-	padding: 0.5in;
-	box-shadow: 0 5px 6px rgba(0,0,0,0.1), 0 5px 6px rgba(0,0,0,0.3);
-	position: absolute;
-	top:0px; left:50%;
-	margin-left: -4.115in;
-	margin-top: 75px;
-	margin-bottom: 75px;
+	
 }
+	.default_lato{
+		font-family: 'Lato', sans-serif;
+	}
+
+
 	/*Styles for links within the resume*/
-	#print_page a{
+	#pdf_contact a,
+	#pdf_experience_section a,
+	#pdf_projects_section a,
+	#pdf_education_section a{
 		color:#000;
 		border-bottom: 1px dotted black;
+	}
+	#print_page h2{
+		color: #000;
 	}
 
 	/*Horizontal Rules between sections*/
@@ -67,7 +64,7 @@
 		======================	*/
 
 	/*Person's Name*/
-	#pdf_name{
+	#namefill{
 		width: 100%;
 		text-align: center;
 		font-size: 28pt;
@@ -82,13 +79,17 @@
 		padding-bottom: 10px;
 	}
 		/*Adding spacing between items*/
-		#email_icon,
-		#phone_icon,
-		#loc_icon{
-			padding-left: 25px;
+		#pdf_contact i{
+			padding-right: 1px;
 		}
+		#pdf_contact span{
+			padding-right: 11px;
+		}
+			#pdf_contact span:first-child{
+				padding-left: 11px;
+			}
 		/*Line break for link, bolder*/
-		#pdf_link{
+		#linkfill{
 			font-weight: 400;
 			display: block;
 		}
@@ -102,13 +103,15 @@
 	#pdf_statement_section{
 
 	}
-		#pdf_statement{
+		#statementfill{
 			line-height: 1.6em;
 			text-align: left;
 			font-size: 9pt;
 			padding-bottom: 6px;
 			text-align: justify;
 			margin-top: 10px;
+			color: #000;
+			font-weight: 400;
 		}
 
 
@@ -126,36 +129,28 @@
 			padding: 0.05in 0 0.05in 0.5in; margin: 0 auto;
 		}
 
-		/*Employer name, Employer Location, Employment time*/
-		#job_1_employer,
-		#job_1_loc,
-		#job_1_time,
-		#job_2_employer,
-		#job_2_loc,
-		#job_2_time,
-		#job_3_employer,
-		#job_3_loc,
-		#job_3_time{
 
-		}
 			/*Add bullets between Employer/loc and loc/time */
-			#job_1_loc:before,
-			#job_1_time:before,
-			#job_2_loc:before,
-			#job_2_time:before,
-			#job_3_loc:before,
-			#job_3_time:before{
+			#emp12fill:before,
+			#emp13fill:before,
+			#emp22fill:before,
+			#emp23fill:before,
+			#emp32fill:before,
+			#emp33fill:before{
 				content: " \A0 \A0 \A0 \2022 \A0 \A0 \A0";
 			}
 
-		/*	Employer and job description
+		/*	Employer and job description as well as proj description
 			Currently the same, can be different */
-		#pdf_job1_emp_desc, 
-		#pdf_job2_emp_desc, 
-		#pdf_job3_emp_desc,
-		#pdf_job1_job_desc, 
-		#pdf_job2_job_desc, 
-		#pdf_job3_job_desc{
+		#emp14fill, 
+		#emp24fill, 
+		#emp34fill,
+		#emp16fill, 
+		#emp26fill, 
+		#emp36fill,
+		#proj1descfill,
+		#proj2descfill,
+		#proj3descfill{
 			font-weight: 300;
 			font-size: 10pt;
 			line-height: 1.5em;
@@ -165,10 +160,13 @@
 		}
 		
 		/*Job Title (different from employer)*/
-		#job1_title, 
-		#job2_title, 
-		#job3_title{
+		#emp15fill, 
+		#emp25fill, 
+		#emp35fill
+		{
 			font-size: 11pt;
+			letter-spacing: 1px;
+			font-weight: 400;
 		}
 
 		/*Styles specifically for 2nd and 3 jobs if shown*/
@@ -193,41 +191,40 @@
 			margin-bottom: 20px;
 		}
 		/*Degree name styling*/
-		#pdf_degree,
-		#pdf_degree2,
-		#pdf_degree3{
+		#edu11fill,
+		#edu21fill,
+		#edu31fill{
 			font-size: 11pt;
-			text-transform: uppercase;
 			font-weight: 700;
 			letter-spacing: 1px;
 			display: block;
 		}
 		/*School,Location,Graduation Date - all the same now - can be separated*/
-		#pdf_school,
-		#pdf_school2,
-		#pdf_school3,
-		#pdf_school_loc,
-		#pdf_school_loc2,
-		#pdf_school_loc3,
-		#pdf_graduation,
-		#pdf_graduation2,
-		#pdf_graduation3,
-		#pdf_gpa,
-		#pdf_gpa2,
-		#pdf_gpa3{
+		#edu12fill,
+		#edu22fill,
+		#edu32fill,
+		#edu13fill,
+		#edu23fill,
+		#edu33fill,
+		#edu14fill,
+		#edu24fill,
+		#edu34fill,
+		#edu15fill,
+		#edu25fill,
+		#edu35fill{
 			font-size: 10pt;
 
 		}
 		/*Adding bullets between items*/
-		#pdf_school_loc:before,
-		#pdf_graduation:before,
-		#pdf_school_loc2:before,
-		#pdf_graduation2:before,
-		#pdf_school_loc3:before,
-		#pdf_graduation3:before,
-		#pdf_gpa:before,
-		#pdf_gpa2:before,
-		#pdf_gpa3:before {
+		#edu13fill:before,
+		#edu14fill:before,
+		#edu23fill:before,
+		#edu24fill:before,
+		#edu33fill:before,
+		#edu34fill:before,
+		#edu15fill:before,
+		#edu25fill:before,
+		#edu35fill:before {
 			content: " \A0 \2022 \A0";
 		}
 
@@ -241,7 +238,7 @@
 	}
 		/*Span wrapping the skills.
 		Bullets are placed using JS, cannot be styled differently*/
-		#pdf_skills{
+		#skillsfill{
 			font-size: 12pt;
 			letter-spacing: 1px;
 			width:90%;

@@ -1,21 +1,46 @@
 @media print {
-	nav, aside, article, #info_bar, #intro_wrapper, #pdf_lightbox, #tips, #preview_btn, #save_from_preview{
+	#mobilenav,
+	#welcome_back,
+	nav, progress,
+	#section_information, 
+	#section_statement,
+	#section_work,
+	#section_projects,
+	#section_education,
+	#section_skills,
+	#section_customization,
+	#section_done,
+	#edit_resume,
+	#save_resume,
+	#settings_instructions,
+	#settings_toggle,
+	#hidethismoney
+	{
 		display: none !important;
 	}
 	#print_page{
-		display: block;
-		box-sizing:border-box;
 
-		/*Disabled  these in print query*/
-		z-index: 100;
-		padding: 0;
+		display: block;
+		/*box-sizing:border-box;*/
+
+		/*Disabled these in print query*/
+		z-index: 0;
 		box-shadow: none;
-		top:0px; left:0;
+		position: absolute;
+		top:0px !important; left:0%;
 		margin-left: 0;
-		margin-top: 0;
+		margin-top: 0 !important;
 		margin-bottom: 0;
+
+
+		border: none !important;
+
+		border-top: 5px solid blue;
+		
+
 	}
 	#pdf_experience_section h2,
+	#pdf_projects_section h2,
 	#job_1_employer,
 	#job_1_loc,
 	#job_1_time,
@@ -87,4 +112,8 @@ p > a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+}
+
+#settings_instructions a:hover:before {
+	visibility: hidden;
 }
