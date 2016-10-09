@@ -18,52 +18,63 @@ function loadTestData(){
 
 
 	//PDF Testing, filler info
-	$("#pdf_name").html("John A. Smith");
-	$("#pdf_email").html("JohnSmith@example.com");
-	$("#pdf_phone").html("507.555.5897");
-	$("#pdf_location").html("Madison, WI");
-	$("#pdf_link").html("<a href='#'>http://linkedin.com/in/johns</a>");
+	$("#pdf_name").html("James Bannister");
+	$("#pdf_email").html("james@bannister.me");
+	$("#pdf_phone").html("0474 728 430");
+	$("#pdf_location").html("Brisbane, Australia");
+	$("#pdf_link").html("<a href='https://bannister.me'>https://bannister.me</a>");
+	$("#pdf_linkedin").html("<a href='https://linkedin.com/in/jamesebannister'>https://linkedin.com/in/jamesebannister</a>");
 	$("#pdf_statement_title").html("Professional Summary");
-	$("#pdf_statement").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon. Picanha meatball sausage, spare ribs cow ham hock short loin. Ball tip ribeye short ribs fatback chicken ground round pork chop short loin beef ribs kevin landjaeger ham tri-tip. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly.");
+	$("#pdf_statement").html("A self-driven individual who is always hungry for a challenge. I have a history in a range of different industries and have worked with an array of different technologies within these. I have a track record of success within each of these jobs and am always looking for ways to improve both myself and the job at hand. I have a strong background with technology, including a degree in Information Systems and e-Commerce, which I have used to build upon my extensive experience in customer service. This has given me the ability to be an effective team member and leader, and a driver for continuous improvement related to technology and the delivery of first class experiences.");
 	
-	$("#job_1_employer").html("Google, Inc.");
-	$("#job_1_loc").html("Mountain View, California");
-	$("#job_1_time").html("July 2012 - May 2014");
-	$("#pdf_job1_emp_desc").html("Google is an American multinational corporation specializing in Internet-related services and products. These include online advertising technologies, search, cloud computing, and software.");
-	$("#job1_title").html("Front End Developer");
-	$("#pdf_job1_job_desc").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip <a href='#'>steak fatback</a> picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.<br/><b>Responsibilities Included</b><ul><li>Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle</li><li>wine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket.</li><li>Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump</li></ul>Abiltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.");
+	$("#job_1_employer").html("Trade Me");
+	$("#job_1_loc").html("Wellington, New Zealand");
+	$("#job_1_time").html("February 2014 - September 2016");
+	$("#pdf_job1_emp_desc").html("The eBay of New Zealand, handling half of New Zealand's daily internet traffic. An NZX Top 50 company.");
+	$("#job1_title").html("Team Leader");
+	$("#pdf_job1_job_desc").html("I led one of four teams in the Customer Support division where I was responsible for making sure Trade Me’s 3.7 million customers receive outstanding, world class customer support, 24/7, 365 days of the year.<br/>I was also solely responsible for data and analytics inside my business unit, which is used for a wide range of forecasting, decision making, resource planning, impact analysis and project work.<br/><b>Key duties of this role included:</b><ul><li>Meeting customer satisfaction benchmarks</li><li>Developing customer service strategy</li><li>Coaching and development</li><li>Managing internal relationships with other parts of the business to ensure everyone is always up-to-speed with the fast paced environment we work in</li><li>Team management and engagement</li><li>Producing reports that require data & analytics, or statistical interpretation, for internal and external stakeholders</li></ul>");
 	
-	// $("#job_2_employer").html("Google, Inc.");
-	// $("#job_2_loc").html("Mountain View, California");
-	// $("#job_2_time").html("July 2012 - May 2014");
-	// $("#pdf_job2_emp_desc").html("Google is an American multinational corporation specializing in Internet-related services and products. These include online advertising technologies, search, cloud computing, and software.");
-	// $("#job2_title").html("Front End Developer");
-	// $("#pdf_job2_job_desc").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip <a href='#'>steak fatback</a> picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.<br/><b>Responsibilities Included</b><ul><li>Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle</li><li>wine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket.</li><li>Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump</li></ul>Abiltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.");
+	$("#job_2_employer").html("Ticketek");
+	$("#job_2_loc").html("Wellington, New Zealand");
+	$("#job_2_time").html("August 2012 - January 2014");
+	$("#pdf_job2_emp_desc").html("The largest of three New Zealand ticketing agencies, dominating the Wellington ticketing market, which hosts a range of venues and the companies national contact centre.");
+	$("#job2_title").html("Lead Supervisor");
+	$("#pdf_job2_job_desc").html("I was responsible for numerous activities relating to the provision of customer service; including leading and coordination of staff and other supervisors at both events and a call centre, agency support and troubleshooting, customer service, and dispatch of tickets and documents to customers.");
 	
-	// $("#job_3_employer").html("Google, Inc.");
-	// $("#job_3_loc").html("Mountain View, California");
-	// $("#job_3_time").html("July 2012 - May 2014");
-	// $("#pdf_job3_emp_desc").html("Google is an American multinational corporation specializing in Internet-related services and products. These include online advertising technologies, search, cloud computing, and software.");
-	// $("#job3_title").html("Front End Developer");
-	// $("#pdf_job3_job_desc").html("Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip <a href='#'>steak fatback</a> picanha shankle swine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.<br/><b>Responsibilities Included</b><ul><li>Bacon ipsum dolor amet tenderloin ball tip porchetta pork loin, strip steak fatback picanha shankle</li><li>wine rump boudin biltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket.</li><li>Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump</li></ul>Abiltong doner shoulder. Meatball flank cow, short loin chuck cupim pork loin picanha kielbasa corned beef sirloin doner brisket. Ham hock bresaola porchetta beef ribs capicola. Alcatra pancetta jerky frankfurter corned beef, pork belly andouille pig rump bacon.");
+	$("#job_3_employer").html("Caltex Hyderabad");
+	$("#job_3_loc").html("Napier, New Zealand");
+	$("#job_3_time").html("2009-2011");
+	$("#pdf_job3_emp_desc").html("Local petrol station and truck stop, located on a busy Napier street. Open 24/7 365.");
+	$("#job3_title").html("Team Leader");
+	$("#pdf_job3_job_desc").html("Responsible for opening and closing of the store as well as the day to day running of the shift; including the supervision of multiple staff members, training, stock coordination, and reporting.");
 	
+	$("#job_4_employer").html("News Corp Australia");
+	$("#job_4_loc").html("Brisbane, Australia");
+	$("#job_4_time").html("September 2016 - Current (fixed term contract)");
+	$("#pdf_job4_emp_desc").html("News Corp Australia is one of Australia's largest media companies, employing more than 8,000 staff nationwide and approximately 3,000 journalists.");
+	$("#job4_title").html("Real Time Analyst");
+	$("#pdf_job4_job_desc").html("Working as part of the Workforce Planning Team, I am solely responsible for the Direct Sales team in Queensland - comprised of around 40-50 staff. I manage all intraday processes to achieve the optimum service levels, maximise efficiencies and occupancy rates. This involves the real time monitoring of call centre staff ensuring adherence to their schedules, on the day schedule changes and management of daily exceptions.");
 
+	$("#job_5_employer").html("Freelance Web Design & Development");
+	$("#job_5_loc").html("New Zealand & Australia");
+	$("#job_5_time").html("2013 - Present");
+	$("#pdf_job5_emp_desc").html("Hobby turned part time profession. Working on both personal projects and client projects through referrals.");
+	$("#job5_title").html("Web Developer and Server Administrator");
+	$("#pdf_job5_job_desc").html("I specialise in PHP development, predominantly using MVC frameworks like Laravel. I am familiar using a wide range of technologies and platforms.<br/>In my personal time I will usually have a few projects on the go; the biggest of which is <a href=\"https://fiverp.net\">FiveRP</a>; an online mod and gamemode for Grand Theft Auto V. Rolling Stone recently <a href=\"http://www.rollingstone.com/culture/news/how-modders-are-making-gta-v-into-role-players-paradise-w441501\">wrote an article about this</a>. The project has seen me build a full web application from the ground up, solo, write a full API to hook in to the game, and consume numerous APIs to provide a more realistic element to the game and improve the web application. Outside of the web application, development takes a collaborative approach, using agile methodologies, and utilises numerous technologies<br/>From a professional perspective, I have done work for 4 companies/clients which has ranged from setting them up on a CMS, configuring e-Commerce solutions, and also builiding a custom website from scratch.");
 
-	$("#pdf_degree").html("Bachelor of Science in Computer Science");
-	$("#pdf_school").html("University of Wisconsin-Madison");
-	$("#pdf_school_loc").html("Madison, WI");
-	$("#pdf_graduation").html("2017");
-	$("#pdf_degree2").html("Bachelor of Arts in Communications");
-	$("#pdf_school2").html("Berekely University");
-	$("#pdf_school_loc2").html("Berkely, CA");
-	$("#pdf_graduation2").html("2012");
-	$("#pdf_degree3").html("Doctor of Philosophy in Organizational Psychology");
-	$("#pdf_school3").html("University of Minnesota-Twin Cities");
-	$("#pdf_school_loc3").html("Minneapolis, MN");
-	$("#pdf_graduation3").html("2014");
+	$("#pdf_degree").html("Bachelor of Commerce");
+	$("#pdf_school").html("Victoria University of Wellington");
+	$("#pdf_school_loc").html("Wellington, New Zealand");
+	$("#pdf_graduation").html("2014");
+	$("#pdf_gpa").html("6.5 GPA");
+	$("#pdf_school_desc").html("Victoria University of Wellington is ranked number one in New Zealand, and is ranked 229th equal internationally. I majored in Information Systems and e-Commerce, achieving an A-/A average across my majors, and a B+/A- average for my degree overall.");
 
-	user_skills="HTML, CSS, Javascript, PHP, Django, Python, Bootstrap, Wordpress, Angular, Ionic, Java, Photoshop, Indesign, Dketch, Evernote, Git/Github"
+	$("#pdf_awards").html("<b>Trade Me</b><ul><li>The Leadership Kev 2015</li><li>CS Superstar New Starter (finalist) 2014</li></ul><b>Victoria University of Wellington</b><ul><li>1st Place - Deloitte VUW Business Case Competition 2014</li></ul><b>Napier Boys' High School</b><ul><li>Prefect and House Captain 2011</li><li>Storkey Award for Citizenship (scholarship) 2011</li><li>Ken Spillar Cup for Active Community Service 2010</li><li>Storkey Award for General Excellence 2008</li></ul>");
+
+	user_skills="Team Leadership, Customer Service, Web Architecture & Development, Data & Analytics, Microsoft Office"
 	user_skills_split = user_skills.replace(/,/g, '<span class="skillbullet"> \u2219 </span>');
 	$("#pdf_skills").html(user_skills_split);
 
+	$("#pdf_job2").show();
+	$("#pdf_job3").show();
 }

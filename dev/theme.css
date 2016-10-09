@@ -141,7 +141,13 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 		#job_2_time,
 		#job_3_employer,
 		#job_3_loc,
-		#job_3_time{
+		#job_3_time,
+		#job_4_employer,
+		#job_4_loc,
+		#job_4_time,
+		#job_5_employer,
+		#job_5_loc,
+		#job_5_time{
 
 		}
 			/*Add bullets between Employer/loc and loc/time */
@@ -150,7 +156,11 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 			#job_2_loc:before,
 			#job_2_time:before,
 			#job_3_loc:before,
-			#job_3_time:before{
+			#job_3_time:before,
+			#job_4_loc:before,
+			#job_4_time:before,
+			#job_5_loc:before,
+			#job_5_time:before{
 				content: " \A0 \A0 \A0 \2022 \A0 \A0 \A0";
 			}
 
@@ -159,9 +169,14 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 		#pdf_job1_emp_desc, 
 		#pdf_job2_emp_desc, 
 		#pdf_job3_emp_desc,
+		#pdf_job4_emp_desc,
+		#pdf_job5_emp_desc,
 		#pdf_job1_job_desc, 
 		#pdf_job2_job_desc, 
-		#pdf_job3_job_desc{
+		#pdf_job3_job_desc,
+		#pdf_job4_job_desc,
+		#pdf_job5_job_desc,
+		#pdf_awards{
 			font-weight: 300;
 			font-size: 10pt;
 			line-height: 1.5em;
@@ -173,13 +188,17 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 		/*Job Title (different from employer)*/
 		#job1_title, 
 		#job2_title, 
-		#job3_title{
+		#job3_title,
+		#job4_title,
+		#job5_title{
 			font-size: 11pt;
 		}
 
 		/*Styles specifically for 2nd and 3 jobs if shown*/
 		#pdf_job2, 
-		#pdf_job3{
+		#pdf_job3,
+		#pdf_job1,
+		#pdf_job5{
 			padding-top: 15px;
 			margin-top: 12px;
 			border-top: 1px dashed rgba(0,0,0,0.05);
@@ -217,7 +236,8 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 		#pdf_school_loc3,
 		#pdf_graduation,
 		#pdf_graduation2,
-		#pdf_graduation3{
+		#pdf_graduation3,
+		#pdf_gpa{
 			font-size: 10pt;
 
 		}
@@ -227,8 +247,19 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 		#pdf_school_loc2:before,
 		#pdf_graduation2:before,
 		#pdf_school_loc3:before,
-		#pdf_graduation3:before {
+		#pdf_graduation3:before,
+		#pdf_gpa:before {
 			content: " \A0 \2022 \A0";
+		}
+
+		#pdf_school_desc{
+			text-align: left;
+			font-weight: 300;
+			font-size: 10pt;
+			line-height: 1.5em;
+			margin: 0 auto;
+			padding-top: 5px;
+			padding-bottom: 5px;
 		}
 
 
@@ -257,3 +288,5 @@ If you want to see this theme on ineedaresu.me, email THIS FILE only to me and I
 			position: relative; top:5px;
 		}
 
+	}
+}
